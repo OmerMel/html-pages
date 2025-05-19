@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Places to Visit</title>
+    <title>Israel Tourism</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,19 +19,8 @@
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .places {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
         .place {
-            margin: 20px;
-            width: calc(33.33% - 40px);
-            text-align: center;
+            margin-bottom: 20px;
         }
         .place img {
             width: 100%;
@@ -39,74 +28,75 @@
             object-fit: cover;
             border-radius: 10px;
         }
-        .place button {
+        .place h2 {
+            margin-top: 10px;
+        }
+        .learn-more {
             background-color: #4CAF50;
             color: #fff;
-            border: none;
             padding: 10px 20px;
-            font-size: 16px;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
         }
-        .place button:hover {
+        .learn-more:hover {
             background-color: #3e8e41;
         }
         #map {
             height: 400px;
             width: 100%;
             border: 1px solid #ddd;
-            margin: 20px 0;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>Places to Visit</h1>
+        <h1>Israel Tourism</h1>
+        <div class="place">
+            <img src="https://images.pexels.com/photos/9902930/pexels-photo-9902930.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Masada">
+            <h2>Masada</h2>
+            <p>Masada is an ancient fortress located on a plateau overlooking the Dead Sea.</p>
+            <button class="learn-more" onclick="window.location.href='https://www.google.com/search?q=Masada'">Learn More</button>
         </div>
-        <div class="places">
-            <div class="place">
-                <img src="https://images.pexels.com/photos/1530259/pexels-photo-1530259.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Eiffel Tower">
-                <h2>Eiffel Tower</h2>
-                <button onclick="window.location.href='https://www.google.com/search?q=Eiffel+Tower'">Learn More</button>
-            </div>
-            <div class="place">
-                <img src="https://images.pexels.com/photos/1530259/pexels-photo-1530259.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Colosseum">
-                <h2>Colosseum</h2>
-                <button onclick="window.location.href='https://www.google.com/search?q=Colosseum'">Learn More</button>
-            </div>
-            <div class="place">
-                <img src="https://images.pexels.com/photos/1530259/pexels-photo-1530259.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Taj Mahal">
-                <h2>Taj Mahal</h2>
-                <button onclick="window.location.href='https://www.google.com/search?q=Taj+Mahal'">Learn More</button>
-            </div>
+        <div class="place">
+            <img src="https://images.pexels.com/photos/9902930/pexels-photo-9902930.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Tel Aviv">
+            <h2>Tel Aviv</h2>
+            <p>Tel Aviv is a vibrant city located on the Mediterranean coast of Israel.</p>
+            <button class="learn-more" onclick="window.location.href='https://www.google.com/search?q=Tel+Aviv'">Learn More</button>
+        </div>
+        <div class="place">
+            <img src="https://images.pexels.com/photos/9902930/pexels-photo-9902930.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Haifa">
+            <h2>Haifa</h2>
+            <p>Haifa is a coastal city located in the northern part of Israel.</p>
+            <button class="learn-more" onclick="window.location.href='https://www.google.com/search?q=Haifa'">Learn More</button>
         </div>
         <div id="map"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+        <script>
+            function initMap() {
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: 31.7717, lng: 35.2163},
+                    zoom: 7
+                });
+                var marker1 = new google.maps.Marker({
+                    position: {lat: 31.3254, lng: 35.3534},
+                    map: map,
+                    title: 'Masada'
+                });
+                var marker2 = new google.maps.Marker({
+                    position: {lat: 32.0853, lng: 34.7689},
+                    map: map,
+                    title: 'Tel Aviv'
+                });
+                var marker3 = new google.maps.Marker({
+                    position: {lat: 32.7940, lng: 34.9905},
+                    map: map,
+                    title: 'Haifa'
+                });
+            }
+        </script>
     </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
-    <script>
-        function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 2,
-                center: {lat: 20, lng: 0}
-            });
-            var marker1 = new google.maps.Marker({
-                position: {lat: 48.8583, lng: 2.2945},
-                map: map,
-                title: 'Eiffel Tower'
-            });
-            var marker2 = new google.maps.Marker({
-                position: {lat: 41.8902, lng: 12.4922},
-                map: map,
-                title: 'Colosseum'
-            });
-            var marker3 = new google.maps.Marker({
-                position: {lat: 27.1753, lng: 78.0422},
-                map: map,
-                title: 'Taj Mahal'
-            });
-        }
-        google.maps.event.addDomListener(window, 'load', initMap);
-    </script>
 </body>
 </html>
 ```
