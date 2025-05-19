@@ -1,102 +1,91 @@
 <html>
 <head>
-<title>Discover Italy</title>
-<style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-}
-
-header {
-  background-color: #f0f0f0;
-  padding: 20px;
-  text-align: center;
-}
-
-header h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-header p {
-  font-size: 18px;
-  color: #666;
-}
-
-.photos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.photos img {
-  width: 30%;
-  height: 200px;
-  margin: 10px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.recommendations {
-  margin-top: 40px;
-}
-
-.recommendations h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.recommendations ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.recommendations li {
-  margin-bottom: 20px;
-}
-
-.map {
-  margin-top: 40px;
-}
-
-.map iframe {
-  width: 100%;
-  height: 400px;
-  border: none;
-}
-
-</style>
+	<title>Discover Italy</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			max-width: 800px;
+			margin: 40px auto;
+			padding: 20px;
+			background-color: #f9f9f9;
+			border: 1px solid #ddd;
+			box-shadow: 0 0 10px rgba(0,0,0,0.1);
+		}
+		.header {
+			background-color: #333;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+		.photos {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.photo {
+			width: 30%;
+			margin: 10px;
+		}
+		.photo img {
+			width: 100%;
+			height: 150px;
+			object-fit: cover;
+			border-radius: 10px;
+		}
+		.recommendations {
+			margin-top: 40px;
+		}
+		.recommendation {
+			margin-bottom: 20px;
+		}
+		.map {
+			margin-top: 40px;
+		}
+		iframe {
+			width: 100%;
+			height: 400px;
+			border: none;
+		}
+	</style>
 </head>
 <body>
-<div class="container">
-<header>
-<h1>Discover Italy</h1>
-<p>Explore the beauty of Italy with our recommendations for local attractions and a map to guide you.</p>
-</header>
-<div class="photos">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Rome_-_Colosseum_-_8218.jpg/800px-Rome_-_Colosseum_-_8218.jpg" alt="Colosseum">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Venice_-_Grand_Canal_-_3395.jpg/800px-Venice_-_Grand_Canal_-_3395.jpg" alt="Grand Canal">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Florence_-_Duomo_-_4449.jpg/800px-Florence_-_Duomo_-_4449.jpg" alt="Duomo">
-</div>
-<div class="recommendations">
-<h2>Local Attractions</h2>
-<ul>
-<li><strong>Rome</strong>: Explore the Colosseum, Roman Forum, and Pantheon.</li>
-<li><strong>Venice</strong>: Take a gondola ride through the Grand Canal, visit St. Mark's Basilica, and get lost in the narrow streets.</li>
-<li><strong>Florence</strong>: Visit the Uffizi Gallery, Duomo, and Ponte Vecchio.</li>
-</ul>
-</div>
-<div class="map">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14214.892118596755!2d12.4925235!3d41.8902109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61b4fb67a649%3A0x1a4a8e86fd5eba3c!2sRome%2C%20Italy!5e0!3m2!1sen!2sus!4v1643720341411!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-</div>
-</div>
+	<div class="container">
+		<div class="header">
+			<h1>Discover Italy</h1>
+		</div>
+		<div class="photos">
+			<div class="photo">
+				<img src="https://source.unsplash.com/300x200/?italy,rome" alt="Rome">
+			</div>
+			<div class="photo">
+				<img src="https://source.unsplash.com/300x200/?italy,florence" alt="Florence">
+			</div>
+			<div class="photo">
+				<img src="https://source.unsplash.com/300x200/?italy,venice" alt="Venice">
+			</div>
+		</div>
+		<div class="recommendations">
+			<h2>Local Attractions</h2>
+			<div class="recommendation">
+				<h3>Rome</h3>
+				<p>Visit the Colosseum, the Pantheon, and the Vatican City.</p>
+			</div>
+			<div class="recommendation">
+				<h3>Florence</h3>
+				<p>Explore the Uffizi Gallery, the Duomo, and the Ponte Vecchio.</p>
+			</div>
+			<div class="recommendation">
+				<h3>Venice</h3>
+				<p>Take a gondola ride, visit St. Mark's Square, and get lost in the canals.</p>
+			</div>
+		</div>
+		<div class="map">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2825.124661135332!2d12.492230114999995!3d41.89021097932795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61b55a27a9d7%3A0x6d8e38e6a287d6f4!2sColosseum!5e0!3m2!1sen!2sus!4v1671945141423!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
+	</div>
 </body>
 </html>
