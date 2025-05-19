@@ -1,71 +1,67 @@
 <html>
 <head>
-	<title>Travel Guide</title>
+	<title>Discover Italy</title>
 	<style>
 		body {
 			font-family: Arial, sans-serif;
 		}
+		
 		.container {
-			max-width: 800px;
+			width: 80%;
 			margin: 40px auto;
-			padding: 20px;
-			background-color: #f9f9f9;
-			border: 1px solid #ddd;
-			border-radius: 10px;
-			box-shadow: 0 0 10px rgba(0,0,0,0.1);
-		}
-		.header {
-			background-color: #333;
-			color: #fff;
-			padding: 10px;
 			text-align: center;
 		}
-		.photos {
+		
+		.images {
 			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
+			justify-content: space-between;
+			margin-bottom: 20px;
 		}
-		.photos img {
+		
+		.images img {
 			width: 30%;
+			height: 200px;
+			object-fit: cover;
 			margin: 10px;
 			border-radius: 10px;
 		}
+		
 		.recommendations {
-			margin-top: 20px;
+			margin-bottom: 20px;
 		}
-		.recommendations h2 {
-			margin-bottom: 10px;
-		}
+		
 		.map {
-			margin-top: 20px;
-		}
-		.map iframe {
-			width: 100%;
+			width: 80%;
 			height: 400px;
+			margin: 0 auto;
+			border: 1px solid black;
+		}
+		
+		iframe {
+			width: 100%;
+			height: 100%;
 			border: none;
 		}
 	</style>
 </head>
 <body>
 	<div class="container">
-		<div class="header">
-			<h1>Travel Guide to Australia</h1>
-		</div>
-		<div class="photos">
-			<img src="https://source.unsplash.com/400x200/?sydney-opera-house" alt="Sydney Opera House">
-			<img src="https://source.unsplash.com/400x200/?great-barrier-reef" alt="Great Barrier Reef">
-			<img src="https://source.unsplash.com/400x200/?uluru-kata-tjuta" alt="Uluru-Kata Tjuta">
+		<h1>Discover Italy</h1>
+		<div class="images">
+			<img src="https://source.unsplash.com/600x400/?colosseum,italy" alt="Colosseum">
+			<img src="https://source.unsplash.com/600x400/?grand-canal,venice,italy" alt="Grand Canal">
+			<img src="https://source.unsplash.com/600x400/?amalfi-coast,italy" alt="Amalfi Coast">
 		</div>
 		<div class="recommendations">
-			<h2>Local Attractions</h2>
+			<h2>Local Attractions:</h2>
 			<ul>
-				<li><a href="https://www.sydneyoperahouse.com/">Sydney Opera House</a></li>
-				<li><a href="https://www.australia.com/en/places/great-barrier-reef.html">Great Barrier Reef</a></li>
-				<li><a href="https://www.parksaustralia.gov.au/uluru/">Uluru-Kata Tjuta National Park</a></li>
+				<li><a href="https://www.italia.it/en" target="_blank">Italian Tourism Website</a></li>
+				<li><a href="https://www.rometourism.com/" target="_blank">Rome Tourism Website</a></li>
+				<li><a href="https://www.venice-tourism.com/" target="_blank">Venice Tourism Website</a></li>
 			</ul>
 		</div>
 		<div class="map">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13327.961142586003!2d151.215294!3d-33.865143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b1298382c8969d%3A0x5017d6810ceaa3d!2sSydney%20Opera%20House!5e0!3m2!1sen!2sau!4v1639654396543!5m2!1sen!2sau" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117669.38756574346!2d12.49223131500001!3d41.89021007924843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61b55a27a9bb%3A0x43340b6d87b57250!2sRome%2C%20Italy!5e0!3m2!1sen!2sin!4v1673559308570!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 		</div>
 	</div>
 </body>
