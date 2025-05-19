@@ -1,76 +1,106 @@
+```html
+<!DOCTYPE html>
 <html>
 <head>
-<title>Argentina</title>
-<style>
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-}
-
-.container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-h1 {
-  text-align: center;
-  color: #333;
-}
-
-.place {
-  margin-bottom: 20px;
-}
-
-.place img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.place h2 {
-  margin-top: 10px;
-}
-
-.button {
-  background-color: #4CAF50;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: #3e8e41;
-}
-</style>
+	<title>Argentina</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f0f0f0;
+		}
+		.container {
+			max-width: 800px;
+			margin: 40px auto;
+			padding: 20px;
+			background-color: #fff;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		.header {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			border-bottom: 1px solid #444;
+			border-radius: 10px 10px 0 0;
+		}
+		.header h1 {
+			margin: 0;
+			font-size: 24px;
+		}
+		.content {
+			padding: 20px;
+		}
+		.place {
+			margin-bottom: 20px;
+		}
+		.place img {
+			width: 100%;
+			height: 200px;
+			object-fit: cover;
+			border-radius: 10px 10px 0 0;
+		}
+		.place-info {
+			padding: 10px;
+			border: 1px solid #ddd;
+			border-top: none;
+			border-radius: 0 0 10px 10px;
+		}
+		.place-info h2 {
+			margin: 0;
+			font-size: 18px;
+		}
+		.learn-more {
+			background-color: #333;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		.learn-more:hover {
+			background-color: #444;
+		}
+		.map-container {
+			margin-top: 20px;
+		}
+	</style>
 </head>
 <body>
-<div class="container">
-<h1>Argentina</h1>
-<div class="place">
-<img src="https://images.pexels.com/photos/3653963/pexels-photo-3653963.jpeg" alt="Iguazú Falls">
-<h2>Iguazú Falls</h2>
-<p>Iguazú Falls is a system of waterfalls on the border of Argentina and Brazil.</p>
-<button class="button"><a href="https://www.google.com/search?q=Iguaz%C3%BA+Falls" target="_blank">Learn More</a></button>
-</div>
-<div class="place">
-<img src="https://images.pexels.com/photos/3653963/pexels-photo-3653963.jpeg" alt="Perito Moreno Glacier">
-<h2>Perito Moreno Glacier</h2>
-<p>Perito Moreno Glacier is a glacier located in the Los Glaciares National Park in Argentina.</p>
-<button class="button"><a href="https://www.google.com/search?q=Perito+Moreno+Glacier" target="_blank">Learn More</a></button>
-</div>
-<div class="place">
-<img src="https://images.pexels.com/photos/3653963/pexels-photo-3653963.jpeg" alt="Recoleta Cemetery">
-<h2>Recoleta Cemetery</h2>
-<p>Recoleta Cemetery is a famous cemetery located in the Recoleta neighborhood of Buenos Aires, Argentina.</p>
-<button class="button"><a href="https://www.google.com/search?q=Recoleta+Cemetery" target="_blank">Learn More</a></button>
-</div>
-</div>
+	<div class="container">
+		<div class="header">
+			<h1>Argentina</h1>
+		</div>
+		<div class="content">
+			<div class="place">
+				<img src="https://www.pexels.com/photo/scenic-photo-of-waterfalls-during-daytime-3653963/" alt="Iguazú Falls">
+				<div class="place-info">
+					<h2>Iguazú Falls</h2>
+					<p>Iguazú Falls is a system of waterfalls on the border of Argentina and Brazil.</p>
+					<button class="learn-more" onclick="window.location.href='https://www.google.com/search?q=Iguaz%C3%BA+Falls'">Learn More</button>
+				</div>
+			</div>
+			<div class="place">
+				<img src="https://www.pexels.com/photo/scenic-photo-of-waterfalls-during-daytime-3653963/" alt="Patagonia">
+				<div class="place-info">
+					<h2>Patagonia</h2>
+					<p>Patagonia is a sparsely populated region at the tip of South America, shared by Argentina and Chile.</p>
+					<button class="learn-more" onclick="window.location.href='https://www.google.com/search?q=Patagonia'">Learn More</button>
+				</div>
+			</div>
+			<div class="place">
+				<img src="https://www.pexels.com/photo/scenic-photo-of-waterfalls-during-daytime-3653963/" alt="Recoleta Cemetery">
+				<div class="place-info">
+					<h2>Recoleta Cemetery</h2>
+					<p>Recoleta Cemetery is a famous cemetery in Buenos Aires, Argentina, known for its grand mausoleums and statues.</p>
+					<button class="learn-more" onclick="window.location.href='https://www.google.com/search?q=Recoleta+Cemetery'">Learn More</button>
+				</div>
+			</div>
+			<div class="map-container">
+				<iframe src="https://www.google.com/maps/d/embed?mid=1wPj9Z5F1z8X1VZjZ1VZjZ1VZjZ1VZjZ&hl=en" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
+```
