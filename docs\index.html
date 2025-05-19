@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>Germany Tourism</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image-gallery img {
+  width: 30%;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.recommendations {
+  margin-top: 40px;
+}
+
+.recommendations h2 {
+  color: #00698f;
+}
+
+.attraction {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.attraction h3 {
+  margin-top: 0;
+}
+
+.map-container {
+  margin-top: 40px;
+}
+
+#map {
+  width: 100%;
+  height: 400px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Germany Tourism</h1>
+<div class="image-gallery">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Neuschwanstein_Castle.jpg/1200px-Neuschwanstein_Castle.jpg" alt="Neuschwanstein Castle">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Berlin_Wall_Memorial_%282016%29.jpg/1024px-Berlin_Wall_Memorial_%282016%29.jpg" alt="Berlin Wall Memorial">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Cologne_Cathedral_%282020%29.jpg/1024px-Cologne_Cathedral_%282020%29.jpg" alt="Cologne Cathedral">
+</div>
+<div class="recommendations">
+<h2>Local Attractions</h2>
+<div class="attraction">
+<h3>Neuschwanstein Castle</h3>
+<p>Located in Bavaria, this fairy-tale castle is a must-visit attraction.</p>
+</div>
+<div class="attraction">
+<h3>Berlin Wall Memorial</h3>
+<p>A historic site in Berlin, the Berlin Wall Memorial is a must-visit for history buffs.</p>
+</div>
+<div class="attraction">
+<h3>Cologne Cathedral</h3>
+<p>A stunning example of Gothic architecture, the Cologne Cathedral is a must-visit in Cologne.</p>
+</div>
+</div>
+<div class="map-container">
+<h2>Map of Attractions</h2>
+<div id="map"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+<script>
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 51.1657, lng: 10.4515},
+    zoom: 6
+  });
+  var neuschwansteinCastle = {lat: 47.5577, lng: 10.7497};
+  var berlinWallMemorial = {lat: 52.5233, lng: 13.4114};
+  var cologneCathedral = {lat: 50.9384, lng: 6.9563};
+  var markers = [
+    {position: neuschwansteinCastle, map: map, title: 'Neuschwanstein Castle'},
+    {position: berlinWallMemorial, map: map, title: 'Berlin Wall Memorial'},
+    {position: cologneCathedral, map: map, title: 'Cologne Cathedral'}
+  ];
+  markers.forEach(function(marker) {
+    var markerItem = new google.maps.Marker(marker);
+  });
+}
+</script>
+</div>
+</div>
+</body>
+</html>
