@@ -1,68 +1,62 @@
 <html>
 <head>
-	<title>Discover Italy</title>
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-		}
-		
-		.container {
-			width: 80%;
-			margin: 40px auto;
-			text-align: center;
-		}
-		
-		.images {
-			display: flex;
-			justify-content: space-between;
-			margin-bottom: 20px;
-		}
-		
-		.images img {
-			width: 30%;
-			height: 200px;
-			object-fit: cover;
-			margin: 10px;
-			border-radius: 10px;
-		}
-		
-		.recommendations {
-			margin-bottom: 20px;
-		}
-		
-		.map {
-			width: 80%;
-			height: 400px;
-			margin: 0 auto;
-			border: 1px solid black;
-		}
-		
-		iframe {
-			width: 100%;
-			height: 100%;
-			border: none;
-		}
-	</style>
+<title>Italy Travel Guide</title>
+<style>
+body {
+background-color: #f2f2f2;
+}
+.container {
+width: 80%;
+margin: 40px auto;
+background-color: #fff;
+padding: 20px;
+box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+h1 {
+text-align: center;
+}
+img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+margin: 20px 0;
+}
+.map {
+width: 100%;
+height: 400px;
+border: 1px solid #ddd;
+}
+</style>
 </head>
 <body>
-	<div class="container">
-		<h1>Discover Italy</h1>
-		<div class="images">
-			<img src="https://source.unsplash.com/600x400/?colosseum,italy" alt="Colosseum">
-			<img src="https://source.unsplash.com/600x400/?grand-canal,venice,italy" alt="Grand Canal">
-			<img src="https://source.unsplash.com/600x400/?amalfi-coast,italy" alt="Amalfi Coast">
-		</div>
-		<div class="recommendations">
-			<h2>Local Attractions:</h2>
-			<ul>
-				<li><a href="https://www.italia.it/en" target="_blank">Italian Tourism Website</a></li>
-				<li><a href="https://www.rometourism.com/" target="_blank">Rome Tourism Website</a></li>
-				<li><a href="https://www.venice-tourism.com/" target="_blank">Venice Tourism Website</a></li>
-			</ul>
-		</div>
-		<div class="map">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117669.38756574346!2d12.49223131500001!3d41.89021007924843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61b55a27a9bb%3A0x43340b6d87b57250!2sRome%2C%20Italy!5e0!3m2!1sen!2sin!4v1673559308570!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-		</div>
-	</div>
+<div class="container">
+<h1>Italy Travel Guide</h1>
+<p>Italy is a country located in Southern Europe, known for its rich history, art, architecture, and delicious food. Here are some recommendations for local attractions and a map to help you navigate.</p>
+<img src="https://source.unsplash.com/1600x900/?italy,rome" alt="Italy Photo">
+<img src="https://source.unsplash.com/1600x900/?italy,florence" alt="Italy Photo">
+<img src="https://source.unsplash.com/1600x900/?italy,venice" alt="Italy Photo">
+<p>Some popular local attractions include:</p>
+<ul>
+<li><a href="https://www.colosseumroma.com/" target="_blank">Colosseum</a> (Rome)</li>
+<li><a href="https://www.uffizi.it/" target="_blank">Uffizi Gallery</a> (Florence)</li>
+<li><a href="https://www.stmarksbasilica.info/" target="_blank">St. Mark's Basilica</a> (Venice)</li>
+</ul>
+<div class="map" id="map"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+<script>
+function initMap() {
+var map = new google.maps.Map(document.getElementById('map'), {
+center: {lat: 43.171855, lng: 12.513823},
+zoom: 6
+});
+var colosseum = {lat: 41.890218, lng: 12.490319};
+var uffizi = {lat: 43.769565, lng: 11.255814};
+var stmarks = {lat: 45.434373, lng: 12.338456};
+var marker1 = new google.maps.Marker({position: colosseum, map: map});
+var marker2 = new google.maps.Marker({position: uffizi, map: map});
+var marker3 = new google.maps.Marker({position: stmarks, map: map});
+}
+</script>
+</div>
 </body>
 </html>
