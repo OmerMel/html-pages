@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>Germany Travel Guide</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin: 20px 0;
+}
+
+.map {
+  width: 100%;
+  height: 400px;
+  border: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+.attractions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.attractions li {
+  margin-bottom: 20px;
+}
+
+.attractions li::before {
+  content: "\25B8";
+  font-size: 12px;
+  margin-right: 10px;
+  color: #666;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Germany Travel Guide</h1>
+<p>Germany is a country with a rich history, vibrant culture, and stunning landscapes. From the fairytale-like Neuschwanstein Castle to the vibrant city of Berlin, there's something for everyone in Germany.</p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Neuschwanstein_Castle.jpg/1024px-Neuschwanstein_Castle.jpg" alt="Neuschwanstein Castle">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Berlin_Brandenburg_Gate.jpg/1024px-Berlin_Brandenburg_Gate.jpg" alt="Brandenburg Gate">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Rhine_River_Lorelei.jpg/1024px-Rhine_River_Lorelei.jpg" alt="Rhine River Lorelei">
+<h2>Local Attractions</h2>
+<ul class="attractions">
+  <li>Neuschwanstein Castle (47.5577° N, 10.7497° E)</li>
+  <li>Brandenburg Gate (52.5167° N, 13.3889° E)</li>
+  <li>Rhine River Lorelei (50.1389° N, 7.7325° E)</li>
+  <li>Checkpoint Charlie (52.5075° N, 13.3903° E)</li>
+  <li>Munich Marienplatz (48.1374° N, 11.5755° E)</li>
+</ul>
+<div class="map" id="map"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+<script>
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: 51.1657, lng: 10.4515 },
+    zoom: 6
+  });
+  var attractions = [
+    { lat: 47.5577, lng: 10.7497, name: 'Neuschwanstein Castle' },
+    { lat: 52.5167, lng: 13.3889, name: 'Brandenburg Gate' },
+    { lat: 50.1389, lng: 7.7325, name: 'Rhine River Lorelei' },
+    { lat: 52.5075, lng: 13.3903, name: 'Checkpoint Charlie' },
+    { lat: 48.1374, lng: 11.5755, name: 'Munich Marienplatz' }
+  ];
+  attractions.forEach(function(attraction) {
+    var marker = new google.maps.Marker({
+      position: { lat: attraction.lat, lng: attraction.lng },
+      map: map,
+      title: attraction.name
+    });
+  });
+}
+</script>
+</div>
+</body>
+</html>
