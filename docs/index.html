@@ -1,62 +1,102 @@
-<html>
+```html
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Italy Travel Guide</title>
-<style>
-body {
-background-color: #f2f2f2;
-}
-.container {
-width: 80%;
-margin: 40px auto;
-background-color: #fff;
-padding: 20px;
-box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-h1 {
-text-align: center;
-}
-img {
-width: 100%;
-height: 200px;
-object-fit: cover;
-margin: 20px 0;
-}
-.map {
-width: 100%;
-height: 400px;
-border: 1px solid #ddd;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Italy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .image {
+            width: 30%;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .attractions {
+            margin-top: 40px;
+        }
+        .attraction {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .attraction h2 {
+            margin-top: 0;
+        }
+        .map {
+            height: 500px;
+            margin-top: 40px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        @media only screen and (max-width: 768px) {
+            .image {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-<h1>Italy Travel Guide</h1>
-<p>Italy is a country located in Southern Europe, known for its rich history, art, architecture, and delicious food. Here are some recommendations for local attractions and a map to help you navigate.</p>
-<img src="https://source.unsplash.com/1600x900/?italy,rome" alt="Italy Photo">
-<img src="https://source.unsplash.com/1600x900/?italy,florence" alt="Italy Photo">
-<img src="https://source.unsplash.com/1600x900/?italy,venice" alt="Italy Photo">
-<p>Some popular local attractions include:</p>
-<ul>
-<li><a href="https://www.colosseumroma.com/" target="_blank">Colosseum</a> (Rome)</li>
-<li><a href="https://www.uffizi.it/" target="_blank">Uffizi Gallery</a> (Florence)</li>
-<li><a href="https://www.stmarksbasilica.info/" target="_blank">St. Mark's Basilica</a> (Venice)</li>
-</ul>
-<div class="map" id="map"></div>
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
-<script>
-function initMap() {
-var map = new google.maps.Map(document.getElementById('map'), {
-center: {lat: 43.171855, lng: 12.513823},
-zoom: 6
-});
-var colosseum = {lat: 41.890218, lng: 12.490319};
-var uffizi = {lat: 43.769565, lng: 11.255814};
-var stmarks = {lat: 45.434373, lng: 12.338456};
-var marker1 = new google.maps.Marker({position: colosseum, map: map});
-var marker2 = new google.maps.Marker({position: uffizi, map: map});
-var marker3 = new google.maps.Marker({position: stmarks, map: map});
-}
-</script>
-</div>
+    <div class="container">
+        <h1>Discover Italy</h1>
+        <div class="images">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Trevi_Fountain_-_Rome_-_Italy.jpg/1024px-Trevi_Fountain_-_Rome_-_Italy.jpg" alt="Trevi Fountain" class="image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Grand_Canal_%28Venice%29.jpg/1024px-Grand_Canal_%28Venice%29.jpg" alt="Grand Canal" class="image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Pompeii_2013_%282%29.jpg/1024px-Pompeii_2013_%282%29.jpg" alt="Pompeii" class="image">
+        </div>
+        <div class="attractions">
+            <div class="attraction">
+                <h2>Colosseum</h2>
+                <p>The Colosseum is an iconic amphitheater in the heart of Rome, Italy. It's one of the most recognizable landmarks in the world and a must-visit attraction for anyone traveling to Italy.</p>
+                <p>Coordinates: 41.8902° N, 12.4903° E</p>
+            </div>
+            <div class="attraction">
+                <h2>Grand Canal</h2>
+                <p>The Grand Canal is the main waterway through Venice, Italy. It's lined with stunning architecture, including historic buildings, bridges, and palaces.</p>
+                <p>Coordinates: 45.4359° N, 12.3353° E</p>
+            </div>
+            <div class="attraction">
+                <h2>Pompeii</h2>
+                <p>Pompeii is an ancient Roman city that was destroyed by the eruption of Mount Vesuvius in 79 AD. It's a fascinating archaeological site that provides a unique glimpse into life in ancient Rome.</p>
+                <p>Coordinates: 40.7505° N, 14.4854° E</p>
+            </div>
+        </div>
+        <div class="map" id="map"></div>
+        <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"/>
+        <script>
+            let map = L.map('map').setView([41.8902, 12.4903], 6);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+                subdomains: ['a', 'b', 'c']
+            }).addTo(map);
+            L.marker([41.8902, 12.4903]).addTo(map).bindPopup('Colosseum');
+            L.marker([45.4359, 12.3353]).addTo(map).bindPopup('Grand Canal');
+            L.marker([40.7505, 14.4854]).addTo(map).bindPopup('Pompeii');
+        </script>
+    </div>
 </body>
 </html>
+```
