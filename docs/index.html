@@ -1,49 +1,65 @@
+```
 <html>
 <head>
-<title>Italy Travel Guide</title>
-<style>
-body {
-background-color: #f2f2f2;
-}
-h1 {
-color: #00698f;
-}
-p {
-color: #666;
-}
-img {
-width: 300px;
-height: 200px;
-margin: 10px;
-border-radius: 10px;
-}
-.map {
-width: 600px;
-height: 400px;
-border: 1px solid #ccc;
-}
-</style>
+  <title>Italy Travel Guide</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .image-container img {
+      width: 30%;
+      margin: 10px;
+      border-radius: 10px;
+    }
+    .map-container {
+      margin: 40px 0;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+    }
+  </style>
 </head>
 <body>
-<h1>Welcome to Italy!</h1>
-<p>Italy is a country known for its rich history, art, architecture, and delicious food. Here are some recommendations for local attractions:</p>
-<h2>Attractions:</h2>
-<ul>
-<li>Colosseum (Rome)</li>
-<li>Leaning Tower of Pisa (Pisa)</li>
-<li>Grand Canal (Venice)</li>
-</ul>
-<h2>Photos:</h2>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Colosseum_in_Rome%2C_Italy_-_April_2007.jpg/800px-Colosseum_in_Rome%2C_Italy_-_April_2007.jpg" alt="Colosseum">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Pisa_Tower_%28vertical%29.jpg/800px-Pisa_Tower_%28vertical%29.jpg" alt="Leaning Tower of Pisa">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Venice_-_Grand_Canal.jpg/800px-Venice_-_Grand_Canal.jpg" alt="Grand Canal">
-<h2>Map:</h2>
-<div class="map">
-<iframe src="https://www.google.com/maps/d/embed?mid=1wQm8vL4QjRfjRd1YhZq2f3pK3Kwv4K" width="600" height="400"></iframe>
-</div>
-<p>Coordinates:</p>
-<p>Colosseum: 41.8902° N, 12.4905° E</p>
-<p>Leaning Tower of Pisa: 43.7229° N, 10.3942° E</p>
-<p>Grand Canal: 45.4347° N, 12.3389° E</p>
+  <div class="container">
+    <h1>Italy Travel Guide</h1>
+    <p>Italy is a country with a rich history, art, architecture, and delicious food. Here are some recommendations for local attractions and a map with their coordinates.</p>
+    <div class="image-container">
+      <img src="https://www.italia.it/en/files/2020/12/Roma-3.jpg" alt="Rome">
+      <img src="https://www.turismo.it/files/2020/06/Venezia-1.jpg" alt="Venice">
+      <img src="https://www.visitflorence.com/wp-content/uploads/2020/03/Florence-Italy.jpg" alt="Florence">
+    </div>
+    <h2>Local Attractions</h2>
+    <ul>
+      <li><a href="https://www.italia.it/en">Rome Colosseum</a></li>
+      <li><a href="https://www.visitvenice.it/en/">Venice Canals</a></li>
+      <li><a href="https://www.visitflorence.com/">Florence Cathedral</a></li>
+    </ul>
+    <div class="map-container">
+      <iframe src="https://maps.google.com/maps?q=Rome,+Italy&t=&z=10&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </div>
+    <h2>Map with Attractions</h2>
+    <p>Here are the coordinates of the attractions:</p>
+    <ul>
+      <li>Rome Colosseum: 41.8902, 12.4900</li>
+      <li>Venice Canals: 45.4371, 12.3353</li>
+      <li>Florence Cathedral: 43.7699, 11.2558</li>
+    </ul>
+  </div>
 </body>
 </html>
+```
