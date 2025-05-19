@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discover Italy</title>
+    <title>Discover Belize</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,91 +12,93 @@
             padding: 0;
             background-color: #f0f0f0;
         }
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
+        .header {
             background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
         }
         .images {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
         }
         .image {
-            width: 30%;
-            margin: 10px;
+            margin: 20px;
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .attractions {
-            margin-top: 40px;
+            padding: 20px;
         }
         .attraction {
             margin-bottom: 20px;
             padding: 20px;
-            background-color: #f9f9f9;
+            background-color: #fff;
+            border: 1px solid #ddd;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         .attraction h2 {
             margin-top: 0;
         }
         .map {
             height: 500px;
-            margin-top: 40px;
+            width: 100%;
             border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        @media only screen and (max-width: 768px) {
+        @media only screen and (max-width: 600px) {
             .image {
                 width: 100%;
-                margin: 10px 0;
+                height: 150px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Discover Italy</h1>
-        <div class="images">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Trevi_Fountain_-_Rome_-_Italy.jpg/1024px-Trevi_Fountain_-_Rome_-_Italy.jpg" alt="Trevi Fountain" class="image">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Grand_Canal_%28Venice%29.jpg/1024px-Grand_Canal_%28Venice%29.jpg" alt="Grand Canal" class="image">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Pompeii_2013_%282%29.jpg/1024px-Pompeii_2013_%282%29.jpg" alt="Pompeii" class="image">
-        </div>
-        <div class="attractions">
-            <div class="attraction">
-                <h2>Colosseum</h2>
-                <p>The Colosseum is an iconic amphitheater in the heart of Rome, Italy. It's one of the most recognizable landmarks in the world and a must-visit attraction for anyone traveling to Italy.</p>
-                <p>Coordinates: 41.8902° N, 12.4903° E</p>
-            </div>
-            <div class="attraction">
-                <h2>Grand Canal</h2>
-                <p>The Grand Canal is the main waterway through Venice, Italy. It's lined with stunning architecture, including historic buildings, bridges, and palaces.</p>
-                <p>Coordinates: 45.4359° N, 12.3353° E</p>
-            </div>
-            <div class="attraction">
-                <h2>Pompeii</h2>
-                <p>Pompeii is an ancient Roman city that was destroyed by the eruption of Mount Vesuvius in 79 AD. It's a fascinating archaeological site that provides a unique glimpse into life in ancient Rome.</p>
-                <p>Coordinates: 40.7505° N, 14.4854° E</p>
-            </div>
-        </div>
-        <div class="map" id="map"></div>
-        <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"></script>
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"/>
-        <script>
-            let map = L.map('map').setView([41.8902, 12.4903], 6);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
-                subdomains: ['a', 'b', 'c']
-            }).addTo(map);
-            L.marker([41.8902, 12.4903]).addTo(map).bindPopup('Colosseum');
-            L.marker([45.4359, 12.3353]).addTo(map).bindPopup('Grand Canal');
-            L.marker([40.7505, 14.4854]).addTo(map).bindPopup('Pompeii');
-        </script>
+    <div class="header">
+        <h1>Discover Belize</h1>
     </div>
+    <div class="images">
+        <img class="image" src="https://source.unsplash.com/300x200/?belize-beach" alt="Belize Beach">
+        <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Great_Blue_Hole_Belize.jpg/300px-Great_Blue_Hole_Belize.jpg" alt="Great Blue Hole">
+        <img class="image" src="https://source.unsplash.com/300x200/?belize-jungle" alt="Belize Jungle">
+    </div>
+    <div class="attractions">
+        <div class="attraction">
+            <h2>Actun Tunichil Muknal (ATM) Cave</h2>
+            <p>Explore the ancient Mayan artifacts and swim through the crystal-clear waters of this majestic cave.</p>
+            <p>Coordinates: 17.0500, -88.8667</p>
+        </div>
+        <div class="attraction">
+            <h2>Great Blue Hole</h2>
+            <p>Marvel at the stunning views of this natural wonder, a giant submarine sinkhole with crystal-clear waters.</p>
+            <p>Coordinates: 17.3167, -87.5333</p>
+        </div>
+        <div class="attraction">
+            <h2>Lamanai</h2>
+            <p>Discover the rich history and culture of the ancient Mayan civilization at this well-preserved archaeological site.</p>
+            <p>Coordinates: 17.7333, -88.6667</p>
+        </div>
+    </div>
+    <div class="map" id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([17.2500, -88.5000], 8);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+            subdomains: ['a', 'b', 'c']
+        }).addTo(map);
+        var attractions = [
+            [17.0500, -88.8667, 'Actun Tunichil Muknal (ATM) Cave'],
+            [17.3167, -87.5333, 'Great Blue Hole'],
+            [17.7333, -88.6667, 'Lamanai']
+        ];
+        attractions.forEach(function(attraction) {
+            L.marker([attraction[0], attraction[1]]).addTo(map).bindPopup(attraction[2]);
+        });
+    </script>
 </body>
 </html>
 ```
