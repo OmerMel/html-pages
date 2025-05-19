@@ -1,132 +1,78 @@
 <html>
 <head>
-<title>Discover Italy</title>
-<style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-img {
-  width: 50%;
-  height: auto;
-  margin: 20px;
-  border-radius: 10px;
-}
-
-.map {
-  width: 80%;
-  height: 400px;
-  border: 1px solid black;
-  margin: 20px;
-}
-
-.attractions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-.attraction {
-  background-color: #f0f0f0;
-  padding: 20px;
-  margin: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  width: 50%;
-}
-
-.attraction h2 {
-  margin-top: 0;
-}
-
-.attraction p {
-  margin-bottom: 20px;
-}
-
-.recommendations {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-.recommendation {
-  background-color: #f0f0f0;
-  padding: 20px;
-  margin: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  width: 50%;
-}
-
-.recommendation h2 {
-  margin-top: 0;
-}
-
-.recommendation p {
-  margin-bottom: 20px;
-}
-</style>
+	<title>Discover Italy</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f0f0f0;
+		}
+		.container {
+			max-width: 800px;
+			margin: 40px auto;
+			padding: 20px;
+			background-color: #ffffff;
+			border: 1px solid #ddd;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		.header {
+			background-color: #333;
+			color: #ffffff;
+			padding: 10px;
+			text-align: center;
+		}
+		.photo-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 10px;
+		}
+		.photo-grid img {
+			width: 100%;
+			height: 150px;
+			object-fit: cover;
+			border-radius: 10px;
+		}
+		.recommendations {
+			margin-top: 20px;
+		}
+		.recommendations ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		.recommendations li {
+			margin-bottom: 10px;
+		}
+		.map {
+			margin-top: 20px;
+		}
+		iframe {
+			width: 100%;
+			height: 400px;
+			border: none;
+		}
+	</style>
 </head>
 <body>
-<header>
-<h1>Discover Italy</h1>
-</header>
-<main>
-<h2>Welcome to Italy</h2>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Panorama_of_Florence_seen_from_Michelangelo_square.jpg/1024px-Panorama_of_Florence_seen_from_Michelangelo_square.jpg" alt="Florence">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Rome_Pantheon.jpg/1024px-Rome_Pantheon.jpg" alt="Rome">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Venice_-_St_Mark%27s_Basilica.jpg/1024px-Venice_-_St_Mark%27s_Basilica.jpg" alt="Venice">
-<div class="map">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2786.892797135395!2d12.492231315392655!3d41.89021027920593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61b6532013ad%3A0x28f1c98249622c4!2sColosseum!5e0!3m2!1sen!2s!4v1643723433143!5m2!1sen!2s" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
-</div>
-<div class="attractions">
-<h2>Local Attractions</h2>
-<div class="attraction">
-<h2>Colosseum</h2>
-<p>The Colosseum is an iconic amphitheater in the center of Rome, Italy. It is one of the most recognizable landmarks in the world and a must-visit attraction for anyone traveling to Rome.</p>
-</div>
-<div class="attraction">
-<h2>Leaning Tower of Pisa</h2>
-<p>The Leaning Tower of Pisa is a famous bell tower located in Pisa, Italy. The tower is known for its unintended tilt, which was caused by the soft ground it was built on.</p>
-</div>
-<div class="attraction">
-<h2>Grand Canal</h2>
-<p>The Grand Canal is the main waterway that runs through the city of Venice, Italy. It is lined with beautiful buildings and historic landmarks, and is a popular destination for gondola rides and boat tours.</p>
-</div>
-</div>
-<div class="recommendations">
-<h2>Recommendations</h2>
-<div class="recommendation">
-<h2>Try the Local Cuisine</h2>
-<p>Italian food is famous for its rich flavors and aromas. Be sure to try some of the local specialties, such as pizza, pasta, and gelato.</p>
-</div>
-<div class="recommendation">
-<h2>Explore the Local Markets</h2>
-<p>Italy is known for its vibrant markets, which offer a wide range of goods, including fresh produce, handmade crafts, and souvenirs.</p>
-</div>
-<div class="recommendation">
-<h2>Take a Guided Tour</h2>
-<p>Consider taking a guided tour to get the most out of your visit to Italy. Guided tours can provide valuable insights and information about the local culture and history.</p>
-</div>
-</div>
-</main>
+	<div class="container">
+		<div class="header">
+			<h1>Discover Italy</h1>
+		</div>
+		<div class="photo-grid">
+			<img src="https://images.pexels.com/photos/1027366/pexels-photo-1027366.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Colosseum">
+			<img src="https://images.pexels.com/photos/1092672/pexels-photo-1092672.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Leaning Tower of Pisa">
+			<img src="https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Grand Canal in Venice">
+		</div>
+		<div class="recommendations">
+			<h2>Local Attractions</h2>
+			<ul>
+				<li>Colosseum (Rome) - 41.8902° N, 12.4903° E</li>
+				<li>Leaning Tower of Pisa (Pisa) - 43.7232° N, 10.3966° E</li>
+				<li>Grand Canal (Venice) - 45.4374° N, 12.3319° E</li>
+			</ul>
+		</div>
+		<div class="map">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2833.764493795743!2d12.492335315678318!3d41.89021657932664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61b6568f439d%3A0x5e74f2e5d3284f9!2sColosseum!5e0!3m2!1sen!2sin!4v1643723922573!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
+	</div>
 </body>
 </html>
