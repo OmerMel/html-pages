@@ -1,85 +1,67 @@
 <html>
 <head>
-	<title>Travel Guide</title>
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-		}
-		
-		.container {
-			width: 80%;
-			margin: 0 auto;
-		}
-		
-		.header {
-			background-color: #f0f0f0;
-			padding: 20px;
-			text-align: center;
-		}
-		
-		.photos {
-			display: flex;
-			justify-content: space-around;
-			margin-top: 20px;
-		}
-		
-		.photo {
-			width: 30%;
-			height: 200px;
-			object-fit: cover;
-			border-radius: 10px;
-		}
-		
-		.recommendations {
-			margin-top: 40px;
-		}
-		
-		Attraction {
-			margin-bottom: 20px;
-		}
-		
-		.map {
-			width: 100%;
-			height: 400px;
-			border: 1px solid black;
-			margin-top: 40px;
-		}
-		
-		iframe {
-			width: 100%;
-			height: 100%;
-			border: none;
-		}
-	</style>
+<title>Israel Attractions</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+.container {
+  width: 80%;
+  margin: 40px auto;
+  text-align: center;
+}
+img {
+  width: 30%;
+  height: 200px;
+  margin: 10px;
+  border-radius: 10px;
+}
+.map {
+  width: 80%;
+  height: 400px;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+}
+</style>
 </head>
 <body>
-	<div class="container">
-		<div class="header">
-			<h1>Travel Guide</h1>
-		</div>
-		<div class="photos">
-			<img class="photo" src="https://source.unsplash.com/600x400/?travel,adventure" alt="Photo 1">
-			<img class="photo" src="https://source.unsplash.com/600x400/?landscape,nature" alt="Photo 2">
-			<img class="photo" src="https://source.unsplash.com/600x400/?city,skyscraper" alt="Photo 3">
-		</div>
-		<div class="recommendations">
-			<h2>Local Attractions</h2>
-			<div class="Attraction">
-				<h3>Attraction 1</h3>
-				<p>Description of attraction 1</p>
-			</div>
-			<div class="Attraction">
-				<h3>Attraction 2</h3>
-				<p>Description of attraction 2</p>
-			</div>
-			<div class="Attraction">
-				<h3>Attraction 3</h3>
-				<p>Description of attraction 3</p>
-			</div>
-		</div>
-		<div class="map">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.838356035327!2d-122.08405108454573!3d37.3853480795705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb61b1c2c3c3b%3A0x9718f333fc84e38!2sGoogleplex!5e0!3m2!1sen!2sin!4v1643723432472!5m2!1sen!2sin" frameborder="0" allowfullscreen></iframe>
-		</div>
-	</div>
+<div class="container">
+<h1>Israel Attractions</h1>
+<p>Israel is a country with a rich history and diverse culture. Here are some recommendations for local attractions:</p>
+<img src="https://unsplash.com/photos/V6s2S5cK2Q4" alt="Tel Aviv Beach">
+<img src="https://unsplash.com/photos/xYXGWO2qV7k" alt="Jerusalem Old City">
+<img src="https://unsplash.com/photos/Cj7bWZxj4qU" alt="Haifa Bay">
+<p>Some must-visit attractions include:</p>
+<ul>
+  <li><a href="https://www.touristisrael.com/tel-aviv/" target="_blank">Tel Aviv Beach</a></li>
+  <li><a href="https://www.touristisrael.com/jerusalem/" target="_blank">Jerusalem Old City</a></li>
+  <li><a href="https://www.touristisrael.com/haifa/" target="_blank">Haifa Bay</a></li>
+</ul>
+<div class="map" id="map"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+<script>
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 32.0853, lng: 34.7818},
+    zoom: 8
+  });
+  var marker1 = new google.maps.Marker({
+    position: {lat: 32.0853, lng: 34.7818},
+    map: map,
+    title: 'Tel Aviv Beach'
+  });
+  var marker2 = new google.maps.Marker({
+    position: {lat: 31.7833, lng: 35.2167},
+    map: map,
+    title: 'Jerusalem Old City'
+  });
+  var marker3 = new google.maps.Marker({
+    position: {lat: 32.8167, lng: 35.0000},
+    map: map,
+    title: 'Haifa Bay'
+  });
+}
+</script>
+</div>
 </body>
 </html>
