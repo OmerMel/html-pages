@@ -3,109 +3,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Italy</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
-    integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
-    crossorigin=""/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+   integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+   crossorigin=""/>
     <style>
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+        header {
+            background-color: #f0f0f0;
             padding: 20px;
+            text-align: center;
         }
-        .header {
+        header h1 {
             font-size: 36px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 20px;
         }
-        .introduction {
-            font-size: 18px;
+        .intro {
+            padding: 20px;
             text-align: center;
-            margin-bottom: 20px;
         }
         .images {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
-        .image {
+        .images img {
             width: 30%;
+            height: 200px;
             margin: 10px;
             border-radius: 10px;
         }
         .attractions {
+            padding: 20px;
+        }
+        .attractions h2 {
             font-size: 24px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
         .attraction {
             margin-bottom: 20px;
         }
-        .attraction-name {
+        .attraction b {
             font-size: 18px;
-            font-weight: bold;
         }
         .map {
-            height: 600px;
+            height: 500px;
+            width: 100%;
+            border: 1px solid #ddd;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="header">Italy</h1>
-        <p class="introduction">Italy, a country located in Southern Europe, is known for its rich history, art, architecture, and delicious food. From the Roman ruins to the Renaissance cities, Italy has a lot to offer. The country is also famous for its beautiful lakes, mountains, and coastal towns.</p>
-        <div class="images">
-            <img class="image" src="https://source.unsplash.com/1920x1080/?italy,landscape" alt="Italy Landscape 1">
-            <img class="image" src="https://source.unsplash.com/1920x1080/?italy,amalfi,coast" alt="Italy Amalfi Coast">
-            <img class="image" src="https://source.unsplash.com/1920x1080/?italy,cinque,terre" alt="Italy Cinque Terre">
-        </div>
-        <h2 class="attractions">Top Attractions</h2>
-        <div class="attraction">
-            <p class="attraction-name"><b>Colosseum</b></p>
-            <p>This ancient amphitheater is one of the most iconic landmarks in Rome, Italy. (41.8902, 12.4903)</p>
-        </div>
-        <div class="attraction">
-            <p class="attraction-name"><b>Leaning Tower of Pisa</b></p>
-            <p>This famous tower is known for its unintended tilt, and is a must-visit attraction in Pisa, Italy. (43.7229, 10.3942)</p>
-        </div>
-        <div class="attraction">
-            <p class="attraction-name"><b>Grand Canal</b></p>
-            <p>This beautiful canal runs through the heart of Venice, Italy, and is lined with stunning architecture and historic landmarks. (45.4347, 12.3356)</p>
-        </div>
-        <div class="attraction">
-            <p class="attraction-name"><b>Roman Forum</b></p>
-            <p>This ancient Roman site is a collection of ruins, including temples, basilicas, and markets. (41.8903, 12.4853)</p>
-        </div>
-        <div class="attraction">
-            <p class="attraction-name"><b>Pompeii</b></p>
-            <p>This ancient Roman city was frozen in time by the devastating volcanic eruption of Mount Vesuvius, and is now a UNESCO World Heritage Site. (40.7517, 14.4844)</p>
-        </div>
-        <div id="map" class="map"></div>
+    <header>
+        <h1>Italy</h1>
+    </header>
+    <div class="intro">
+        Italy, a country in southern Europe, is known for its rich history, art, architecture, and delicious food. From the ancient ruins of Rome to the canals of Venice, Italy has something to offer for every kind of traveler.
     </div>
-    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
-    integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
-    crossorigin=""></script>
+    <div class="images">
+        <img src="https://source.unsplash.com/1600x900/?italy,landscape" alt="Italian Landscape 1">
+        <img src="https://source.unsplash.com/1600x901/?italy,landscape" alt="Italian Landscape 2">
+        <img src="https://source.unsplash.com/1600x902/?italy,landscape" alt="Italian Landscape 3">
+    </div>
+    <div class="attractions">
+        <h2>Top Attractions</h2>
+        <div class="attraction">
+            <b>Rome Colosseum</b>
+            This ancient amphitheater is one of the most iconic landmarks in Rome. (41.8902, 12.4903)
+        </div>
+        <div class="attraction">
+            <b>Grand Canal, Venice</b>
+            A beautiful and historic canal that runs through the heart of Venice. (45.4349, 12.3342)
+        </div>
+        <div class="attraction">
+            <b>Leaning Tower of Pisa</b>
+            A famous tower that is known for its leaning structure. (43.7232, 10.3943)
+        </div>
+        <div class="attraction">
+            <b>Amalfi Coast</b>
+            A stunning coastline with picturesque towns and crystal-clear waters. (40.6333, 14.6167)
+        </div>
+        <div class="attraction">
+            <b>Uffizi Gallery, Florence</b>
+            A world-famous museum that houses an impressive collection of art. (43.7693, 11.2553)
+        </div>
+    </div>
+    <div class="map" id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+   integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+   crossorigin=""></script>
     <script>
-        var map = L.map('map').setView([45.764043, 4.835659], 4);
+        var map = L.map('map').setView([43.7232, 10.3943], 5);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
             subdomains: ['a', 'b', 'c']
         }).addTo(map);
         var attractions = [
-            {name: 'Colosseum', lat: 41.8902, lng: 12.4903},
-            {name: 'Leaning Tower of Pisa', lat: 43.7229, lng: 10.3942},
-            {name: 'Grand Canal', lat: 45.4347, lng: 12.3356},
-            {name: 'Roman Forum', lat: 41.8903, lng: 12.4853},
-            {name: 'Pompeii', lat: 40.7517, lng: 14.4844},
+            { name: 'Rome Colosseum', lat: 41.8902, lng: 12.4903 },
+            { name: 'Grand Canal, Venice', lat: 45.4349, lng: 12.3342 },
+            { name: 'Leaning Tower of Pisa', lat: 43.7232, lng: 10.3943 },
+            { name: 'Amalfi Coast', lat: 40.6333, lng: 14.6167 },
+            { name: 'Uffizi Gallery, Florence', lat: 43.7693, lng: 11.2553 }
         ];
-        attractions.forEach(attraction => {
+        attractions.forEach(function(attraction) {
             L.marker([attraction.lat, attraction.lng]).addTo(map).bindPopup(attraction.name);
         });
     </script>
