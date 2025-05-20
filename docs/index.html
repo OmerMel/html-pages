@@ -1,133 +1,93 @@
 <html>
 <head>
-    <title>Italy</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-          integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-          crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-            integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-            crossorigin=""></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        
-        #header {
-            background-color: #007bff;
-            color: #ffffff;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        #introduction {
-            padding: 20px;
-        }
-        
-        #images {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        #images img {
-            width: 30%;
-            height: 200px;
-            margin: 10px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-        
-        #top-attractions {
-            padding: 20px;
-        }
-        
-        #top-attractions ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        #top-attractions li {
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
-        }
-        
-        #top-attractions li:last-child {
-            border-bottom: none;
-        }
-        
-        #map {
-            height: 500px;
-            width: 100%;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-        }
-    </style>
+ <title>Germany</title>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+   integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+   crossorigin=""/>
+ <style>
+  body {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   margin: 0;
+   padding: 0;
+  }
+  #map {
+   height: 600px;
+   width: 100%;
+  }
+  .image-section {
+   display: flex;
+   justify-content: space-around;
+  }
+  .image-section img {
+   width: 30%;
+   height: 200px;
+   object-fit: cover;
+   margin: 10px;
+  }
+  .top-attractions {
+   margin-top: 20px;
+  }
+  .attraction {
+   margin-bottom: 10px;
+  }
+ </style>
 </head>
 <body>
-<div id="header">
-    <h1>Italy</h1>
-</div>
-<div id="introduction">
-    <p>Italy is a country located in Southern Europe, known for its rich history, art, architecture, and delicious cuisine. From the ancient ruins of Rome to the canals of Venice, Italy has a lot to offer. With its stunning landscapes and beautiful coastlines, Italy is a popular destination for tourists and travelers.</p>
-</div>
-<div id="images">
-    <img src="https://images.unsplash.com/photo-1529650291968-4a2fce35ed8f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdfY2F0MXx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Italian Landscape 1">
-    <img src="https://images.unsplash.com/photo-1519695936489-91e1c8e9be11?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdfY2F0MXx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Italian Landscape 2">
-    <img src="https://images.unsplash.com/photo-1554224154-3e8ea1f4c6b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdfY2F0MXx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Italian Landscape 3">
-</div>
-<div id="top-attractions">
-    <h2>Top Attractions</h2>
-    <ul>
-        <li>
-            <b>Colosseum</b>
-            <p>This ancient amphitheater is one of Rome's most iconic landmarks, and a must-visit attraction for anyone interested in history.</p>
-            <p>Coordinates: (41.8902, 12.4904)</p>
-        </li>
-        <li>
-            <b>Grand Canal</b>
-            <p>This beautiful canal runs through the heart of Venice, and is a must-see for anyone visiting the city.</p>
-            <p>Coordinates: (45.4359, 12.3356)</p>
-        </li>
-        <li>
-            <b>Leaning Tower of Pisa</b>
-            <p>This famous tower is a must-visit attraction for anyone interested in architecture and history.</p>
-            <p>Coordinates: (43.7229, 10.3943)</p>
-        </li>
-        <li>
-            <b>Amalfi Coast</b>
-            <p>This stunning coastline is a popular destination for hikers, beachgoers, and anyone looking for a relaxing vacation.</p>
-            <p>Coordinates: (40.6323, 14.6047)</p>
-        </li>
-        <li>
-            <b>Romantic Gondola Ride</b>
-            <p>This classic Venetian experience is a must-try for anyone visiting Venice.</p>
-            <p>Coordinates: (45.4345, 12.3359)</p>
-        </li>
-    </ul>
-</div>
-<div id="map"></div>
-<script>
-    var map = L.map('map').setView([41.8902, 12.4904], 5);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
-        subdomains: ['a', 'b', 'c']
-    }).addTo(map);
-    
-    var markers = [
-        [41.8902, 12.4904],
-        [45.4359, 12.3356],
-        [43.7229, 10.3943],
-        [40.6323, 14.6047],
-        [45.4345, 12.3359]
-    ];
-    
-    for (var i = 0; i < markers.length; i++) {
-        var marker = L.marker([markers[i][0], markers[i][1]]);
-        marker.addTo(map);
-    }
-</script>
+ <h1 style="text-align: center; margin-top: 20px;">Germany</h1>
+ <p style="text-align: center; margin-bottom: 20px;">Germany is a country located in Central Europe, known for its rich history, vibrant culture, and stunning landscapes. From the fairy-tale castles to the vibrant cities, Germany has something to offer for every kind of traveler. With its unique blend of traditional and modern architecture, Germany is a must-visit destination.</p>
+ <div class="image-section">
+  <img src="https://source.unsplash.com/600x200/?berlin-wall,germany" alt="Berlin Wall">
+  <img src="https://source.unsplash.com/600x200/?neuschwanstein-castle,germany" alt="Neuschwanstein Castle">
+  <img src="https://source.unsplash.com/600x200/?rhine-river,germany" alt="Rhine River">
+ </div>
+ <div class="top-attractions">
+  <h2>Top Attractions</h2>
+  <div class="attraction">
+   <b>Neuschwanstein Castle</b>
+   <p>A fairy-tale like castle located in the Bavarian Alps, known for its stunning architecture and picturesque surroundings.</p>
+   <p>(47.5577, 10.7497)</p>
+  </div>
+  <div class="attraction">
+   <b>Brandenburg Gate</b>
+   <p>An iconic symbol of Berlin and one of the most recognizable landmarks in Germany, offering stunning views of the city.</p>
+   <p>(52.5162, 13.3777)</p>
+  </div>
+  <div class="attraction">
+   <b>Cologne Cathedral</b>
+   <p>A magnificent Gothic cathedral located in the heart of Cologne, featuring stunning stained-glass windows and intricate stone carvings.</p>
+   <p>(50.9412, 6.9583)</p>
+  </div>
+  <div class="attraction">
+   <b>Rhine River</b>
+   <p>A scenic river flowing through the heart of Germany, offering stunning views of the surrounding landscapes and picturesque villages.</p>
+   <p>(50.3667, 7.6)</p>
+  </div>
+  <div class="attraction">
+   <b>Checkpoint Charlie</b>
+   <p>A former border crossing between East and West Berlin, now a popular tourist attraction and a symbol of the city's rich history.</p>
+   <p>(52.5075, 13.3903)</p>
+  </div>
+ </div>
+ <div id="map"></div>
+ <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+   integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+   crossorigin=""></script>
+ <script>
+  var map = L.map('map').setView([51.1657, 10.4515], 6);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+   attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+   subdomains: ['a', 'b', 'c']
+  }).addTo(map);
+  var attractions = [
+   [47.5577, 10.7497],
+   [52.5162, 13.3777],
+   [50.9412, 6.9583],
+   [50.3667, 7.6],
+   [52.5075, 13.3903]
+  ];
+  for (var i = 0; i < attractions.length; i++) {
+   L.marker(attractions[i]).addTo(map);
+  }
+ </script>
 </body>
 </html>
