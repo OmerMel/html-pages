@@ -1,93 +1,120 @@
+<!DOCTYPE html>
 <html>
 <head>
- <title>Germany</title>
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-   integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-   crossorigin=""/>
- <style>
-  body {
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   margin: 0;
-   padding: 0;
-  }
-  #map {
-   height: 600px;
-   width: 100%;
-  }
-  .image-section {
-   display: flex;
-   justify-content: space-around;
-  }
-  .image-section img {
-   width: 30%;
-   height: 200px;
-   object-fit: cover;
-   margin: 10px;
-  }
-  .top-attractions {
-   margin-top: 20px;
-  }
-  .attraction {
-   margin-bottom: 10px;
-  }
- </style>
+	<title>Germany</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@7.2.2" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap">
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Open Sans', sans-serif;
+			background-color: #f7f7f7;
+		}
+		
+		.header {
+			background-color: #333;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+		
+		.header h1 {
+			margin: 0;
+		}
+		
+		.introduction {
+			padding: 20px;
+			margin-bottom: 20px;
+		}
+		
+		.image-container {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 20px;
+		}
+		
+		.image-container img {
+			width: 30%;
+			margin: 10px;
+		}
+		
+		.top-attractions {
+			background-color: #f0f0f0;
+			padding: 20px;
+		}
+		
+		.atraction {
+			margin-bottom: 20px;
+		}
+		
+		.atraction h2 {
+			margin-top: 0;
+		}
+		
+		.leaflet-container {
+			height: 400px;
+			width: 100%;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.2);
+		}
+	</style>
 </head>
 <body>
- <h1 style="text-align: center; margin-top: 20px;">Germany</h1>
- <p style="text-align: center; margin-bottom: 20px;">Germany is a country located in Central Europe, known for its rich history, vibrant culture, and stunning landscapes. From the fairy-tale castles to the vibrant cities, Germany has something to offer for every kind of traveler. With its unique blend of traditional and modern architecture, Germany is a must-visit destination.</p>
- <div class="image-section">
-  <img src="https://source.unsplash.com/600x200/?berlin-wall,germany" alt="Berlin Wall">
-  <img src="https://source.unsplash.com/600x200/?neuschwanstein-castle,germany" alt="Neuschwanstein Castle">
-  <img src="https://source.unsplash.com/600x200/?rhine-river,germany" alt="Rhine River">
- </div>
- <div class="top-attractions">
-  <h2>Top Attractions</h2>
-  <div class="attraction">
-   <b>Neuschwanstein Castle</b>
-   <p>A fairy-tale like castle located in the Bavarian Alps, known for its stunning architecture and picturesque surroundings.</p>
-   <p>(47.5577, 10.7497)</p>
-  </div>
-  <div class="attraction">
-   <b>Brandenburg Gate</b>
-   <p>An iconic symbol of Berlin and one of the most recognizable landmarks in Germany, offering stunning views of the city.</p>
-   <p>(52.5162, 13.3777)</p>
-  </div>
-  <div class="attraction">
-   <b>Cologne Cathedral</b>
-   <p>A magnificent Gothic cathedral located in the heart of Cologne, featuring stunning stained-glass windows and intricate stone carvings.</p>
-   <p>(50.9412, 6.9583)</p>
-  </div>
-  <div class="attraction">
-   <b>Rhine River</b>
-   <p>A scenic river flowing through the heart of Germany, offering stunning views of the surrounding landscapes and picturesque villages.</p>
-   <p>(50.3667, 7.6)</p>
-  </div>
-  <div class="attraction">
-   <b>Checkpoint Charlie</b>
-   <p>A former border crossing between East and West Berlin, now a popular tourist attraction and a symbol of the city's rich history.</p>
-   <p>(52.5075, 13.3903)</p>
-  </div>
- </div>
- <div id="map"></div>
- <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-   integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-   crossorigin=""></script>
- <script>
-  var map = L.map('map').setView([51.1657, 10.4515], 6);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-   attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
-   subdomains: ['a', 'b', 'c']
-  }).addTo(map);
-  var attractions = [
-   [47.5577, 10.7497],
-   [52.5162, 13.3777],
-   [50.9412, 6.9583],
-   [50.3667, 7.6],
-   [52.5075, 13.3903]
-  ];
-  for (var i = 0; i < attractions.length; i++) {
-   L.marker(attractions[i]).addTo(map);
-  }
- </script>
+	<header class="header">
+		<h1>Germany</h1>
+	</header>
+	
+	<div class="introduction">
+		<p>Germany, a country in Western and Central Europe, is known for its rich history, vibrant culture, and stunning landscapes.</p>
+	</div>
+	
+	<div class="image-container">
+		<img src="https://unsplash.com/photos/-3B5h3xw9Wk/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHx8&force=true&w=640" alt="Germany Landscape 1">
+		<img src="https://unsplash.com/photos/B5h3xw9Wk/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHx8&force=true&w=640" alt="Germany Landscape 2">
+		<img src="https://unsplash.com/photos/-3h5h3xw9Wk/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHx8&force=true&w=640" alt="Germany Landscape 3">
+	</div>
+	
+	<div class="top-attractions">
+		<h2>Top Attractions</h2>
+		<div class="attraction">
+			<h2><b>Neuschwanstein Castle</b></h2>
+			<p>A 19th-century Romanesque Revival palace on a rugged hill above the village of Hohenschwangau near Füssen in southwest Bavaria, Germany.</p>
+			<p>(47.6213, 10.7498)</p>
+		</div>
+		<div class="attraction">
+			<h2><b>Brandenburg Gate</b></h2>
+			<p>A monumental gate in Berlin, built in the 18th century as a symbol of peace and unity.</p>
+			<p>(52.5163, 13.3777)</p>
+		</div>
+		<div class="attraction">
+			<h2><b>Cologne Cathedral</b></h2>
+			<p>A magnificent Gothic cathedral in Cologne, Germany, built from the 13th to the 16th century.</p>
+			<p>(50.9384, 6.9563)</p>
+		</div>
+	</div>
+	
+	<div class="leaflet-container" id="map"></div>
+	
+	<script>
+		var map = L.map('map').setView([51.1657, 10.4515], 4);
+		L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
+			attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+			subdomains: ['a', 'b', 'c']
+		});
+		
+		var markers = [
+			L.marker([47.6213, 10.7498]).bindPopup('Neuschwanstein Castle'),
+			L.marker([52.5163, 13.3777]).bindPopup('Brandenburg Gate'),
+			L.marker([50.9384, 6.9563]).bindPopup('Cologne Cathedral')
+		];
+		
+		markers.forEach(function(marker) {
+			marker.addTo(map);
+		});
+	</script>
 </body>
 </html>
