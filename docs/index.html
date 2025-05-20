@@ -1,11 +1,11 @@
-<html>
+<html lang="en">
 <head>
-    <title>Italy</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italy</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
-    integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
-    crossorigin=""/>
+   integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+   crossorigin=""/>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,23 +13,23 @@
             padding: 0;
         }
         .header {
-            background-color: #333;
-            color: #fff;
+            background-color: #f0f0f0;
             padding: 20px;
             text-align: center;
         }
         .intro {
             padding: 20px;
-            text-align: center;
         }
         .images {
             display: flex;
             justify-content: space-around;
+            padding: 20px;
         }
-        .image {
+        .images img {
             width: 30%;
             height: 200px;
-            margin: 10px;
+            object-fit: cover;
+            border-radius: 10px;
         }
         .attractions {
             padding: 20px;
@@ -37,9 +37,10 @@
         .attraction {
             margin-bottom: 20px;
         }
-        #map {
+        .map {
             height: 500px;
             width: 100%;
+            border: 1px solid #ddd;
         }
     </style>
 </head>
@@ -48,64 +49,61 @@
         <h1>Italy</h1>
     </div>
     <div class="intro">
-        <p>Italy, a country located in Southern Europe, is known for its rich history, art, architecture, and delicious cuisine. From the ancient Roman ruins to the picturesque Amalfi Coast, Italy has something to offer for every kind of traveler.</p>
+        <p>Italy, a country located in Southern Europe, is known for its rich history, art, architecture, and delicious cuisine. From the ancient ruins of Rome to the canals of Venice, Italy has a lot to offer.</p>
     </div>
     <div class="images">
-        <img class="image" src="https://source.unsplash.com/1600x900/?italy,landscape" alt="Italy Landscape">
-        <img class="image" src="https://source.unsplash.com/1600x900/?italian,coast" alt="Italian Coast">
-        <img class="image" src="https://source.unsplash.com/1600x900/?rome,italy" alt="Rome, Italy">
+        <img src="https://source.unsplash.com/600x400/?italy,landscape" alt="Italian Landscape 1">
+        <img src="https://source.unsplash.com/600x400/?italy,amalfi,coast" alt="Italian Landscape 2">
+        <img src="https://source.unsplash.com/600x400/?italy,lake,como" alt="Italian Landscape 3">
     </div>
     <div class="attractions">
         <h2>Top Attractions</h2>
         <div class="attraction">
             <b>Colosseum</b>
-            <p>This ancient amphitheater is one of Rome's most iconic landmarks and a must-visit for history buffs.</p>
-            <p>Coordinates: (41.8902, 12.4902)</p>
+            <p>This ancient amphitheater is one of Rome's most iconic landmarks.</p>
+            <p>Coordinates: (41.8902, 12.4923)</p>
         </div>
         <div class="attraction">
             <b>Leaning Tower of Pisa</b>
-            <p>This famous tower is a marvel of engineering and a popular tourist destination.</p>
+            <p>This famous tower is a must-visit attraction in Italy.</p>
             <p>Coordinates: (43.7232, 10.3966)</p>
         </div>
         <div class="attraction">
             <b>Grand Canal</b>
-            <p>This beautiful canal runs through the heart of Venice and offers stunning views of the city.</p>
-            <p>Coordinates: (45.4359, 12.3385)</p>
+            <p>This beautiful canal is the main waterway through Venice.</p>
+            <p>Coordinates: (45.4349, 12.3351)</p>
         </div>
         <div class="attraction">
             <b>Pompeii</b>
             <p>This ancient city was frozen in time by the devastating volcanic eruption of Mount Vesuvius.</p>
-            <p>Coordinates: (40.7492, 14.4807)</p>
+            <p>Coordinates: (40.7492, 14.4857)</p>
         </div>
         <div class="attraction">
             <b>Uffizi Gallery</b>
-            <p>This world-renowned museum in Florence is home to an impressive collection of Renaissance art.</p>
-            <p>Coordinates: (43.7685, 11.2553)</p>
+            <p>This museum in Florence is home to some of the world's most famous paintings.</p>
+            <p>Coordinates: (43.7691, 11.2555)</p>
         </div>
     </div>
-    <div id="map"></div>
+    <div class="map" id="map"></div>
     <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
-    integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
-    crossorigin=""></script>
+   integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+   crossorigin=""></script>
     <script>
-        var map = L.map('map').setView([43.7232, 10.3966], 6);
+        var map = L.map('map').setView([43.1719, 12.5137], 6);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
             subdomains: ['a', 'b', 'c']
         }).addTo(map);
         var attractions = [
-            [41.8902, 12.4902, 'Colosseum'],
-            [43.7232, 10.3966, 'Leaning Tower of Pisa'],
-            [45.4359, 12.3385, 'Grand Canal'],
-            [40.7492, 14.4807, 'Pompeii'],
-            [43.7685, 11.2553, 'Uffizi Gallery']
+            [41.8902, 12.4923, "Colosseum"],
+            [43.7232, 10.3966, "Leaning Tower of Pisa"],
+            [45.4349, 12.3351, "Grand Canal"],
+            [40.7492, 14.4857, "Pompeii"],
+            [43.7691, 11.2555, "Uffizi Gallery"]
         ];
-        for (var i = 0; i < attractions.length; i++) {
-            var lat = attractions[i][0];
-            var lon = attractions[i][1];
-            var name = attractions[i][2];
-            L.marker([lat, lon]).addTo(map).bindPopup(name);
-        }
+        attractions.forEach(function(attraction) {
+            L.marker([attraction[0], attraction[1]]).addTo(map).bindPopup(attraction[2]);
+        });
     </script>
 </body>
 </html>
