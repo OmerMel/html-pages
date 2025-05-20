@@ -1,67 +1,51 @@
-<html>
+```html
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Israel Attractions</title>
-<style>
-body {
-  font-family: Arial, sans-serif;
-}
-.container {
-  width: 80%;
-  margin: 40px auto;
-  text-align: center;
-}
-img {
-  width: 30%;
-  height: 200px;
-  margin: 10px;
-  border-radius: 10px;
-}
-.map {
-  width: 80%;
-  height: 400px;
-  margin: 20px auto;
-  border: 1px solid #ccc;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Israel Attractions</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+   integrity="sha256-kLaT2GgH4chOzG+stHlSklE+17eLlvWPgJ04qQV/U04= "
+   crossorigin=""/>
+    <style>
+        #map { position: absolute; top: 0; bottom: 0; left: 0; right: 0; }
+        .Gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .Gallery img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-<h1>Israel Attractions</h1>
-<p>Israel is a country with a rich history and diverse culture. Here are some recommendations for local attractions:</p>
-<img src="https://unsplash.com/photos/V6s2S5cK2Q4" alt="Tel Aviv Beach">
-<img src="https://unsplash.com/photos/xYXGWO2qV7k" alt="Jerusalem Old City">
-<img src="https://unsplash.com/photos/Cj7bWZxj4qU" alt="Haifa Bay">
-<p>Some must-visit attractions include:</p>
-<ul>
-  <li><a href="https://www.touristisrael.com/tel-aviv/" target="_blank">Tel Aviv Beach</a></li>
-  <li><a href="https://www.touristisrael.com/jerusalem/" target="_blank">Jerusalem Old City</a></li>
-  <li><a href="https://www.touristisrael.com/haifa/" target="_blank">Haifa Bay</a></li>
-</ul>
-<div class="map" id="map"></div>
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
-<script>
-function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 32.0853, lng: 34.7818},
-    zoom: 8
-  });
-  var marker1 = new google.maps.Marker({
-    position: {lat: 32.0853, lng: 34.7818},
-    map: map,
-    title: 'Tel Aviv Beach'
-  });
-  var marker2 = new google.maps.Marker({
-    position: {lat: 31.7833, lng: 35.2167},
-    map: map,
-    title: 'Jerusalem Old City'
-  });
-  var marker3 = new google.maps.Marker({
-    position: {lat: 32.8167, lng: 35.0000},
-    map: map,
-    title: 'Haifa Bay'
-  });
-}
-</script>
-</div>
+    <div class="Gallery">
+        <img src="https://unsplash.com/photos/9gWz1xgJm4Q" alt="Tel Aviv">
+        <img src="https://unsplash.com/photos/MN7X6vAuKq8" alt="Jerusalem">
+        <img src="https://unsplash.com/photos/q9Wk9UgO3iU" alt="Haifa">
+    </div>
+    <div id="map" style="width: 800px; height: 600px;"></div>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+   integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+   crossorigin=""></script>
+    <script>
+        var map = L.map('map').setView([31.7833, 35.2167], 8);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+            subdomains: ['a', 'b', 'c']
+        }).addTo(map);
+        var telAviv = L.marker([32.0853, 34.7818]).addTo(map);
+        telAviv.bindPopup("<b>Tel Aviv</b><br>White City, beaches, and vibrant nightlife.");
+        var jerusalem = L.marker([31.7833, 35.2167]).addTo(map);
+        jerusalem.bindPopup("<b>Jerusalem</b><br>Historic Old City, Western Wall, and Church of the Holy Sepulchre.");
+        var haifa = L.marker([32.7943, 34.9892]).addTo(map);
+        haifa.bindPopup("<b>Haifa</b><br>Baha'i Gardens, German Colony, and stunning views of the Mediterranean.");
+    </script>
 </body>
 </html>
+```
