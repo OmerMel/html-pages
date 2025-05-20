@@ -1,84 +1,105 @@
-```html
-<!DOCTYPE html>
 <html>
 <head>
-	<title>Israel Travel Guide</title>
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-		}
-		.container {
-			width: 80%;
-			margin: 0 auto;
-		}
-		.map {
-			width: 100%;
-			height: 500px;
-			border: 1px solid black;
-		}
-		.photos {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-		}
-		.photo {
-			width: 30%;
-			margin: 10px;
-		}
-		.attractions {
-			list-style: none;
-			padding: 0;
-			margin: 0;
-		}
-		.attraction {
-			margin-bottom: 20px;
-		}
-	</style>
+  <title>Israel</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background-color: #f0f0f0;
+      padding: 20px;
+      text-align: center;
+    }
+    .intro {
+      padding: 20px;
+      text-align: center;
+    }
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .image {
+      margin: 10px;
+      width: 300px;
+    }
+    .attractions {
+      padding: 20px;
+    }
+    .attraction {
+      margin-bottom: 20px;
+    }
+    #map {
+      height: 600px;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
-	<div class="container">
-		<h1>Israel Travel Guide</h1>
-		<div class="photos">
-			<img class="photo" src="https://source.unsplash.com/800x600/?tel-aviv-beach" alt="Tel Aviv Beach">
-			<img class="photo" src="https://source.unsplash.com/800x600/?jerusalem-old-city" alt="Jerusalem Old City">
-			<img class="photo" src="https://source.unsplash.com/800x600/?haifa-bay" alt="Haifa Bay">
-		</div>
-		<h2>Local Attractions</h2>
-		<ul class="attractions">
-			<li class="attraction">
-				<h3>Tel Aviv Beach</h3>
-				<p>One of the most popular beaches in Israel, known for its beautiful sand and clear waters.</p>
-			</li>
-			<li class="attraction">
-				<h3>Jerusalem Old City</h3>
-				<p>A historic and culturally significant area, home to many important landmarks such as the Western Wall and the Church of the Holy Sepulchre.</p>
-			</li>
-			<li class="attraction">
-				<h3>Haifa Bay</h3>
-				<p>A stunning bay with breathtaking views of the Mediterranean Sea, surrounded by beautiful gardens and parks.</p>
-			</li>
-		</ul>
-		<div class="map" id="map"></div>
-		<script>
-			var map = L.map('map').setView([32.0853, 34.7818], 10);
-			L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-				attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
-				subdomains: ['a', 'b', 'c']
-			}).addTo(map);
-			var marker1 = L.marker([32.0853, 34.7818]).addTo(map);
-			marker1.bindPopup('Tel Aviv Beach');
-			var marker2 = L.marker([31.7833, 35.2167]).addTo(map);
-			marker2.bindPopup('Jerusalem Old City');
-			var marker3 = L.marker([32.8167, 34.9833]).addTo(map);
-			marker3.bindPopup('Haifa Bay');
-			map_link = '<a href="https://www.openstreetmap.org/#map=10/32.0853/34.7818">OpenStreetMap</a>';
-			map_link
-		</script>
-		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-			integrity="sha512-xodZBNTC5n17Xt2atTPuE1Hxj1vUSvYj3ffEyRhezAYKoWgv9p0tFbMK8vHq/AplTAOsPmQViOa4DOQwbKNjM"
-			crossorigin=""/>
-	</div>
+  <div class="header">
+    <h1>Israel</h1>
+  </div>
+  <div class="intro">
+    <p>Israel is a country located in the Middle East, known for its rich history and diverse culture. With a mix of modern cities and ancient ruins, Israel has something to offer for every type of traveler.</p>
+  </div>
+  <div class="images">
+    <img class="image" src="https://source.unsplash.com/300x200/?jerusalem-old-city" alt="Jerusalem Old City">
+    <img class="image" src="https://source.unsplash.com/300x200/?tel-aviv-beach" alt="Tel Aviv Beach">
+    <img class="image" src="https://source.unsplash.com/300x200/?masada-israel" alt="Masada Israel">
+  </div>
+  <div class="attractions">
+    <h2>Top Attractions</h2>
+    <div class="attraction">
+      <b>Western Wall</b>
+      <p>A historic wall in Jerusalem, considered one of the most sacred sites in Judaism.</p>
+      <p>(31.7763, 35.2344)</p>
+    </div>
+    <div class="attraction">
+      <b>Dead Sea</b>
+      <p>A saltwater lake located between Israel and Jordan, known for its unique properties and stunning scenery.</p>
+      <p>(31.5673, 35.6167)</p>
+    </div>
+    <div class="attraction">
+      <b>Haifa Bahai Gardens</b>
+      <p>A beautiful garden in Haifa, built around the Shrine of the Bab, a holy site in the Bahai faith.</p>
+      <p>(32.8173, 34.9833)</p>
+    </div>
+    <div class="attraction">
+      <b>Masada Fortress</b>
+      <p>An ancient fortress located on a plateau, known for its stunning views and historic significance.</p>
+      <p>(31.2942, 35.3528)</p>
+    </div>
+    <div class="attraction">
+      <b>Tel Aviv Beach</b>
+      <p>A popular beach in Tel Aviv, known for its vibrant atmosphere and stunning sunsets.</p>
+      <p>(32.0733, 34.7667)</p>
+    </div>
+  </div>
+  <div id="map"></div>
+  <script>
+    var map = L.map('map').setView([31.7763, 35.2344], 7);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+      subdomains: ['a', 'b', 'c']
+    }).addTo(map);
+    var attractions = [
+      [31.7763, 35.2344, 'Western Wall'],
+      [31.5673, 35.6167, 'Dead Sea'],
+      [32.8173, 34.9833, 'Haifa Bahai Gardens'],
+      [31.2942, 35.3528, 'Masada Fortress'],
+      [32.0733, 34.7667, 'Tel Aviv Beach']
+    ];
+    for (var i = 0; i < attractions.length; i++) {
+      L.marker([attractions[i][0], attractions[i][1]]).addTo(map).bindPopup(attractions[i][2]);
+    }
+  </script>
 </body>
 </html>
-```
