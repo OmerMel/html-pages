@@ -1,112 +1,103 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Israel</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
-  integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
-  crossorigin=""/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    #header {
-      background-color: #f0f0f0;
-      padding: 20px;
-      text-align: center;
-    }
-    #header h1 {
-      font-size: 36px;
-      margin: 0;
-    }
-    #introduction {
-      padding: 20px;
-    }
-    #images {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    #images img {
-      width: 30%;
-      height: 200px;
-      margin: 10px;
-      border-radius: 10px;
-    }
-    #top-attractions {
-      padding: 20px;
-    }
-    #top-attractions h2 {
-      margin-top: 0;
-    }
-    .attraction {
-      margin-bottom: 20px;
-    }
-    .attraction h3 {
-      margin-top: 0;
-    }
-    #map {
-      height: 600px;
-      width: 100%;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Israel</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .intro {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .image {
+            width: 30%;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .attractions {
+            margin-top: 40px;
+        }
+        .attraction {
+            margin-bottom: 20px;
+        }
+        .attraction-name {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border: 1px solid #ddd;
+        }
+    </style>
 </head>
 <body>
-  <div id="header">
-    <h1>Israel</h1>
-  </div>
-  <div id="introduction">
-    <p>Israel, a country in Western Asia, is known for its rich history, vibrant culture, and stunning landscapes. From the bustling city of Tel Aviv to the historic city of Jerusalem, Israel has something to offer for every kind of traveler. With its unique blend of modern and ancient attractions, Israel is a must-visit destination for anyone interested in history, culture, and natural beauty.</p>
-  </div>
-  <div id="images">
-    <img src="https://source.unsplash.com/1600x900/?tel-aviv-beach" alt="Tel Aviv Beach">
-    <img src="https://source.unsplash.com/1600x900/?jerusalem-old-city" alt="Jerusalem Old City">
-    <img src="https://source.unsplash.com/1600x900/?dead-sea-landscape" alt="Dead Sea Landscape">
-  </div>
-  <div id="top-attractions">
-    <h2>Top Attractions</h2>
-    <div class="attraction">
-      <h3><b>Tel Aviv Beach</b></h3>
-      <p>Tel Aviv Beach is a popular destination for sunbathing, swimming, and water sports. (32.0739, 34.7689)</p>
-    </div>
-    <div class="attraction">
-      <h3><b>Western Wall</b></h3>
-      <p>The Western Wall, also known as the Wailing Wall, is a historic site in Jerusalem and a significant spot for Jewish people. (31.7763, 35.2344)</p>
-    </div>
-    <div class="attraction">
-      <h3><b>Dead Sea</b></h3>
-      <p>The Dead Sea is a saltwater lake located between Israel and Jordan, known for its unique landscape and therapeutic properties. (31.5333, 35.6167)</p>
-    </div>
-    <div class="attraction">
-      <h3><b>Masada National Park</b></h3>
-      <p>Masada National Park is a historic site located on a plateau overlooking the Dead Sea, known for its ancient fortress and stunning views. (31.3256, 35.3533)</p>
-    </div>
-    <div class="attraction">
-      <h3><b>Haifa Bahai Gardens</b></h3>
-      <p>Haifa Bahai Gardens is a beautiful garden located in Haifa, known for its stunning views of the city and the sea. (32.8153, 34.9783)</p>
-    </div>
-  </div>
-  <div id="map"></div>
-  <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
-  integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
-  crossorigin=""></script>
-  <script>
-    var map = L.map('map').setView([31.7763, 35.2344], 7);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
-      subdomains: ['a', 'b', 'c']
-    }).addTo(map);
-    var attractions = [
-      [32.0739, 34.7689, "Tel Aviv Beach"],
-      [31.7763, 35.2344, "Western Wall"],
-      [31.5333, 35.6167, "Dead Sea"],
-      [31.3256, 35.3533, "Masada National Park"],
-      [32.8153, 34.9783, "Haifa Bahai Gardens"]
+    <div class="container">
+        <h1 class="header">Israel</h1>
+        <p class="intro">Israel is a country in the Middle East, located on the southeastern shore of the Mediterranean Sea and the northern shore of the Red Sea. It has a long coastline on the Mediterranean Sea and a small window to the Red Sea at the Gulf of Eilat.</p>
+        <div class="image-container">
+            <img src="https://unsplash.com/photos/EQkBuLT-3hQ/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHw%3D&force=true&w=640" alt="Israel Landscape">
+            <img src="https://unsplash.com/photos/9aQKJ5n0QoM/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHw%3D&force=true&w=640" alt="Israel Landscape">
+            <img src="https://unsplash.com/photos/5Q92I7e2e8k/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHw%3D&force=true&w=640" alt="Israel Landscape">
+        </div>
+        <div class="attractions">
+            <h2>Top Attractions</h2>
+            <div class="attraction">
+                <span class="attraction-name">Western Wall</span>
+                <p>The Western Wall, Wailing Wall or Kotel is an ancient limestone wall in the Old City of Jerusalem.</p>
+                <p>(31.7763, 35.2333)</p>
+            </div>
+            <div class="attraction">
+                <span class="attraction-name">Masada</span>
+                <p>Masada is an ancient fortification in the Southern District of Israel, on top of an isolated rock plateau.</p>
+                <p>(31.3125, 35.3936)</p>
+            </div>
+            <div class="attraction">
+                <span class="attraction-name">Caesarea National Park</span>
+                <p>Caesarea National Park is a 12,500 dunam archaeological site in the Caesarea Maritima, Israel.</p>
+                <p>(32.5000, 34.9000)</p>
+            </div>
+        </div>
+        <div class="map-container" id="map"></div>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        <script>
+            var map = L.map('map').setView([31.0461, 34.8516], 7);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+                subdomains: ['a', 'b', 'c']
+            }).addTo(map);
+            var markers = [
+        L.marker([31.7763, 35.2333']).addTo(map),
+        L.marker([31.3125, 35.3936]).addTo(map),
+        L.marker([32.5000, 34.9000]).addTo(map)
     ];
-    for (var i = 0; i < attractions.length; i++) {
-      L.marker([attractions[i][0], attractions[i][1]]).addTo(map).bindPopup(attractions[i][2]);
-    }
-  </script>
+        </script>
+    </div>
 </body>
 </html>
