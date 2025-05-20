@@ -1,51 +1,71 @@
-```html
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Israel Attractions</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-   integrity="sha256-kLaT2GgH4chOzG+stHlSklE+17eLlvWPgJ04qQV/U04= "
-   crossorigin=""/>
-    <style>
-        #map { position: absolute; top: 0; bottom: 0; left: 0; right: 0; }
-        .Gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .Gallery img {
-            width: 200px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-    </style>
+	<title>Israel Travel Guide</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+		}
+		.container {
+			width: 80%;
+			margin: 40px auto;
+			text-align: center;
+		}
+		.image-container {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 20px;
+		}
+		.image-container img {
+			width: 30%;
+			height: 200px;
+			object-fit: cover;
+			border-radius: 10px;
+		}
+		.map-container {
+			width: 80%;
+			height: 400px;
+			margin: 20px auto;
+			border: 1px solid #ccc;
+		}
+	</style>
 </head>
 <body>
-    <div class="Gallery">
-        <img src="https://unsplash.com/photos/9gWz1xgJm4Q" alt="Tel Aviv">
-        <img src="https://unsplash.com/photos/MN7X6vAuKq8" alt="Jerusalem">
-        <img src="https://unsplash.com/photos/q9Wk9UgO3iU" alt="Haifa">
-    </div>
-    <div id="map" style="width: 800px; height: 600px;"></div>
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-   integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-   crossorigin=""></script>
-    <script>
-        var map = L.map('map').setView([31.7833, 35.2167], 8);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
-            subdomains: ['a', 'b', 'c']
-        }).addTo(map);
-        var telAviv = L.marker([32.0853, 34.7818]).addTo(map);
-        telAviv.bindPopup("<b>Tel Aviv</b><br>White City, beaches, and vibrant nightlife.");
-        var jerusalem = L.marker([31.7833, 35.2167]).addTo(map);
-        jerusalem.bindPopup("<b>Jerusalem</b><br>Historic Old City, Western Wall, and Church of the Holy Sepulchre.");
-        var haifa = L.marker([32.7943, 34.9892]).addTo(map);
-        haifa.bindPopup("<b>Haifa</b><br>Baha'i Gardens, German Colony, and stunning views of the Mediterranean.");
-    </script>
+	<div class="container">
+		<h1>Israel Travel Guide</h1>
+		<div class="image-container">
+			<img src="https://source.unsplash.com/400x200/?tel-aviv-beach" alt="Tel Aviv Beach">
+			<img src="https://source.unsplash.com/400x200/?old-city-jerusalem" alt="Old City Jerusalem">
+			<img src="https://source.unsplash.com/400x200/?haifa-bay" alt="Haifa Bay">
+		</div>
+		<h2>Local Attractions</h2>
+		<ul>
+			<li>Tel Aviv Beach: Enjoy the Mediterranean coast and vibrant nightlife</li>
+			<li>Old City Jerusalem: Explore the historic and cultural significance of the city</li>
+			<li>Haifa Bay: Visit the beautiful gardens and stunning views of the bay</li>
+		</ul>
+		<div class="map-container">
+			<iframe src="https://www.openstreetmap.org/export/embed.html?bbox=34.76367204681467%2C31.76841315532695%2C35.2161865234375%2C32.10910015869139&layer=mapnik" frameborder="0" width="100%" height="100%"></iframe>
+		</div>
+		<h2>Map with Attractions</h2>
+		<p>The map shows the locations of the attractions mentioned above. You can click on the pins to get more information.</p>
+		<script>
+			var latLngs = [
+				[32.071356, 34.776199], // Tel Aviv Beach
+				[31.778154, 35.235298], // Old City Jerusalem
+				[32.821611, 35.005481] // Haifa Bay
+			];
+			var map = L.map('map').setView([32.083236, 34.763672], 10);
+			L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+				subdomains: ['a', 'b', 'c']
+			}).addTo(map);
+			for (var i = 0; i < latLngs.length; i++) {
+				L.marker(latLngs[i]).addTo(map);
+			}
+		</script>
+		<div id="map" style="width: 80%; height: 400px; border: 1px solid #ccc;"></div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css"/>
 </body>
 </html>
-```
