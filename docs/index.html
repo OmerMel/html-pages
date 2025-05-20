@@ -4,128 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Argentina</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <style>
         * {
-                box-sizing: 0;
-                margin: 0;
-                padding: 0;
-            }
-            body {
-                font-family: 'Open Sans', sans-serif;
-                font-size: 16px;
-                line-height: 1.5;
-            }
-            .container {
-                max-width: 1200px;
-                margin: 40px auto;
-                padding: 20px;
-                background-color: #f9f9f9;
-                border: 1px solid #ddd;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            }
-            .header {
-                font-size: 36px;
-                font-weight: bold;
-                margin-bottom: 20px;
-            }
-            .intro {
-                margin-bottom: 20px;
-            }
-            .images {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                margin-bottom: 20px;
-            }
-            .image {
-                width: 30%;
-                margin: 10px;
-                border: 1px solid #ddd;
-            }
-            .image img {
-                width: 100%;
-                height: 150px;
-                object-fit: cover;
-            }
-            .attractions {
-                margin-bottom: 20px;
-            }
-            .attraction {
-                margin-bottom: 10px;
-            }
-            .attraction b {
-                font-size: 18px;
-            }
-            .map-container {
-                height: 300px;
-                width: 100%;
-                border: 1px solid #ddd;
-            }
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        body {
+            margin: 0;
+            background-color: #f7f7f7;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .intro {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .image-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .image {
+            width: 30%;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .attractions {
+            margin-top: 40px;
+        }
+        .attraction {
+            margin-bottom: 20px;
+        }
+        .attraction-name {
+            font-weight: 600;
+        }
+        .attraction-description {
+            font-size: 16px;
+            width: 80%;
+        }
+        .map {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1 class="header">Argentina</h1>
-        <p class="intro">Argentina is a country located in the southern region of South America. It is the second-largest country in South America and the eighth-largest country in the Americas. Argentina is known for its rich cultural heritage, beautiful landscapes, and vibrant cities.</p>
-        <div class="images">
-            <div class="image">
-                <img src="https://unsplash.com/photos/3X4SJ-O6K4Q/download?force=true&w=640" alt="Iguazu Falls">
-            </div>
-            <div class="image">
-                <img src="https://unsplash.com/photos/4g5LzDqoJ3Q/download?force=true&w=640" alt="Buenos Aires">
-            </div>
-            <div class="image">
-                <img src="https://unsplash.com/photos/VyX7LhE3A6g/download?force=true&w=640" alt="Patagonia">
-            </div>
+        <p class="intro">Argentina is a country located in the southern part of South America. It is the second-largest country in South America and the eighth-largest country in the Americas. Argentina is known for its vibrant culture, rich history, and stunning natural beauty.</p>
+        <div class="image-section">
+            <img src="https://unsplash.com/photos/_-q1pQm3h7Q" alt="Argentina Landscape" />
+            <img src="https://unsplash.com/photos/5TtDhQF3h7Q" alt="Argentina Mountains" />
+            <img src="https://unsplash.com/photos/Qt91hQF3hQF3" alt="Argentina Coast" />
         </div>
         <h2 class="attractions">Top Attractions</h2>
-        <div class="attractions">
-            <div class="attraction">
-                <b>Iguazu Falls</b>
-                <p>One of the world's largest and most spectacular waterfalls.</p>
-                <p>(-25.6956, -54.4368)</p>
-            </div>
-            <div class="attraction">
-                <b>Tigre Delta</b>
-                <p>A unique and fascinating network of rivers and canals.</p>
-                <p>(-34.3953, -58.5753)</p>
-            </div>
-            <div class="attraction">
-                <b>Perito Moreno Glacier</b>
-                <p>A stunning glacier located in Los Glaciares National Park.</p>
-                <p>(-50.4961, -73.4573)</p>
-            </div>
-            <div class="attraction">
-                <b>Recoleta Cemetery</b>
-                <p>A beautiful and historic cemetery in Buenos Aires.</p>
-                <p>(-34.5953, -58.3932)</p>
-            </div>
-            <div class="attraction">
-            <b>Caminito Street</b>
-            <p>A colorful and vibrant street in La Boca, Buenos Aires.</p>
-            <p>(-34.6373, -58.3682)</p>
+        <div class="attraction">
+            <p class="attraction-name"><b>Iguazú Falls</b></p>
+            <p class="attraction-description">One of the most spectacular waterfalls in the world, Iguazú Falls is a must-visit attraction in Argentina.</p>
+            <p>(-25.6956, -54.4361)</p>
         </div>
+        <div class="attraction">
+            <p class="attraction-name"><b>Perito Moreno Glacier</b></p>
+            <p class="attraction-description">A stunning glacier located in Los Glaciares National Park, Perito Moreno Glacier is a popular tourist attraction in Argentina.</p>
+            <p>(-50.4833, -73.0333)</p>
+        </div>
+        <div class="attraction">
+            <p class="attraction-name"><b>Recoleta Cemetery</b></p>
+            <p class="attraction-description">A beautiful and historic cemetery in Buenos Aires, Recoleta Cemetery is a must-visit attraction in Argentina.</p>
+            <p>(-34.5889, -58.3939)</p>
+        </div>
+        <div id="map" class="map"></script>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        <script>
+            var map = L.map('map').setView([-34.5889, -58.3939], 6);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+                subdomains: ['a', 'b', 'c']
+            }).addTo(map);
+            var markers = [
+                [-25.6956, -54.4361],
+                [-50.4833, -73.0333],
+                [-34.5889, -58.3939]
+            ];
+            for (var i = 0; i < markers.length; i++) {
+                L.marker(markers[i]).addTo(map);
+            }
+        </script>
     </div>
-    <div class="map-container" id="map"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
-    <script>
-        var map = L.map('map').setView([-34.6037, -58.3816], 5);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
-            subdomains: ['a', 'b', 'c']
-        }).addTo(map);
-        var attractions = [
-            { lat: -25.6956, lng: -54.4368, name: 'Iguazu Falls' },
-            { lat: -34.3953, lng: -58.5753, name: 'Tigre Delta' },
-            { lat: -50.4961, lng: -73.4573, name: 'Perito Moreno Glacier' },
-            { lat: -34.5953, lng: -58.3932, name: 'Recoleta Cemetery' },
-            { lat: -34.6373, lng: -58.3682, name: 'Caminito Street' }
-        ];
-        attractions.forEach(function(attraction) {
-            L.marker([attraction.lat, attraction.lng]).addTo(map);
-        });
-    </script>
 </body>
 </html>
