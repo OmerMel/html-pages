@@ -1,39 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Argentina</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+        crossorigin=""/>
     <style>
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
-        .header {
-            background-color: #f0f0f0;
+        header {
+            background-color: #333;
+            color: #fff;
             padding: 20px;
             text-align: center;
         }
-        .header h1 {
-            font-size: 36px;
-            margin: 0;
-        }
         .intro {
             padding: 20px;
-            text-align: justify;
+            text-align: center;
         }
-        .image-section {
+        .images {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-around;
+            padding: 20px;
         }
-        .image {
-            margin: 10px;
+        .images img {
             width: 30%;
-            height: 150px;
+            height: 200px;
             object-fit: cover;
             border-radius: 10px;
         }
@@ -43,26 +37,73 @@
         .attraction {
             margin-bottom: 20px;
         }
-        .attraction h2 {
-            margin-top: 0;
-        }
-        .coords {
-            font-size: 14px;
-            color: #666;
-        }
-        #map {
+        .map {
+            height: 500px;
             width: 100%;
-            height: 400px;
             border: 1px solid #ddd;
         }
     </style>
 </head>
 <body>
-    <header class="header">
+    <header>
         <h1>Argentina</h1>
     </header>
     <div class="intro">
-        <p>Argentina is a large, sprawling country located in the southern part of South America. It is known for its rich cultural heritage, beautiful landscapes, and vibrant cities.</p>
+        <p>Argentina is a country located in South America, known for its rich culture, beautiful landscapes, and vibrant cities.</p>
     </div>
-    <div class="image-section">
-        <img src="https://unsplash.com/photos/8kWP3pRQnDQ/download?ixid=MnwxMjA3ZGF0ZGF0ZGF0ZGF0Mjk1MzA2MjYwMDQ2NzI4MTQ4NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2NDQ4NzI4MTQ2NjM2
+    <div class="images">
+        <img src="https://source.unsplash.com/800x400/?argentina-mountains" alt="Argentina Mountains">
+        <img src="https://source.unsplash.com/800x400/?patagonia-argentina" alt="Patagonia Argentina">
+        <img src="https://source.unsplash.com/800x400/?buenos-aires-argentina" alt="Buenos Aires Argentina">
+    </div>
+    <div class="attractions">
+        <h2>Top Attractions</h2>
+        <div class="attraction">
+            <b>Iguazú Falls</b>
+            <p>A breathtaking waterfall on the border of Argentina and Brazil.</p>
+            <p>Coordinates: (-25.6956, -54.4367)</p>
+        </div>
+        <div class="attraction">
+            <b>Perito Moreno Glacier</b>
+            <p>A stunning glacier in Patagonia, known for its blue ice and dramatic calving.</p>
+            <p>Coordinates: (-50.3833, -73.0333)</p>
+        </div>
+        <div class="attraction">
+            <b>Recoleta Cemetery</b>
+            <p>A historic cemetery in Buenos Aires, famous for its grand mausoleums and ornate stone work.</p>
+            <p>Coordinates: (-34.5883, -58.3922)</p>
+        </div>
+        <div class="attraction">
+            <b>Tierra del Fuego National Park</b>
+            <p>A beautiful national park in the southernmost part of Argentina, known for its mountains, forests, and coastlines.</p>
+            <p>Coordinates: (-53.7833, -68.55)</p>
+        </div>
+        <div class="attraction">
+            <b>Cerro de los Siete Colores</b>
+            <p>A colorful hill in Purmamarca, known for its stunning views and geological formations.</p>
+            <p>Coordinates: (-23.7333, -65.5)</p>
+        </div>
+    </div>
+    <div class="map" id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+        crossorigin=""></script>
+    <script>
+        var map = L.map('map').setView([-34.6037, -58.3816], 5);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+            subdomains: ['a', 'b', 'c']
+        }).addTo(map);
+        var attractions = [
+            [-25.6956, -54.4367],
+            [-50.3833, -73.0333],
+            [-34.5883, -58.3922],
+            [-53.7833, -68.55],
+            [-23.7333, -65.5]
+        ];
+        for (var i = 0; i < attractions.length; i++) {
+            L.marker(attractions[i]).addTo(map);
+        }
+    </script>
+</body>
+</html>
