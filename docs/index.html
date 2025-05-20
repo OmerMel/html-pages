@@ -3,33 +3,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Italy</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
-   integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+   integrity="sha256-kLaT2GgH4chOzB+flnD+zUyjE2LlfWPgU04xyI/OifM"
    crossorigin=""/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
         }
-        .header {
-            background-color: #f0f0f0;
+        header {
+            background-color: #333;
+            color: #fff;
             padding: 20px;
             text-align: center;
         }
         .intro {
             padding: 20px;
+            text-align: center;
         }
         .images {
             display: flex;
-            justify-content: space-around;
-            padding: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
-        .images img {
-            width: 30%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
+        .image {
+            margin: 10px;
+            width: calc(33.33% - 20px);
         }
         .attractions {
             padding: 20px;
@@ -37,72 +38,82 @@
         .attraction {
             margin-bottom: 20px;
         }
-        .map {
-            height: 500px;
+        #map {
+            height: 600px;
             width: 100%;
-            border: 1px solid #ddd;
+        }
+        @media only screen and (max-width: 768px) {
+            .image {
+                width: calc(50% - 20px);
+            }
+        }
+        @media only screen and (max-width: 480px) {
+            .image {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="header">
+    <header>
         <h1>Italy</h1>
-    </div>
+    </header>
     <div class="intro">
-        <p>Italy, a country located in Southern Europe, is known for its rich history, art, architecture, and delicious cuisine. From the ancient ruins of Rome to the canals of Venice, Italy has a lot to offer.</p>
+        <p>Italy, a country located in Southern Europe, is known for its rich history, art, architecture, and delicious cuisine. From the snow-capped Alps to the sun-kissed Mediterranean beaches, Italy has a diverse landscape that attracts millions of tourists every year.</p>
     </div>
     <div class="images">
-        <img src="https://source.unsplash.com/600x400/?italy,landscape" alt="Italian Landscape 1">
-        <img src="https://source.unsplash.com/600x400/?italy,amalfi,coast" alt="Italian Landscape 2">
-        <img src="https://source.unsplash.com/600x400/?italy,lake,como" alt="Italian Landscape 3">
+        <div class="image">
+            <img src="https://source.unsplash.com/1600x900/?italy,landscape" alt="Italy Landscape 1">
+        </div>
+        <div class="image">
+            <img src="https://source.unsplash.com/1600x901/?italy,amalfi,coast" alt="Italy Amalfi Coast">
+        </div>
+        <div class="image">
+            <img src="https://source.unsplash.com/1600x902/?italy,tuscany,countryside" alt="Italy Tuscany Countryside">
+        </div>
     </div>
     <div class="attractions">
         <h2>Top Attractions</h2>
         <div class="attraction">
             <b>Colosseum</b>
-            <p>This ancient amphitheater is one of Rome's most iconic landmarks.</p>
-            <p>Coordinates: (41.8902, 12.4923)</p>
+            <p>An ancient amphitheater and one of Rome's most iconic landmarks. (41.8902, 12.4923)</p>
         </div>
         <div class="attraction">
             <b>Leaning Tower of Pisa</b>
-            <p>This famous tower is a must-visit attraction in Italy.</p>
-            <p>Coordinates: (43.7232, 10.3966)</p>
+            <p>A famous bell tower known for its unintended tilt. (43.7231, 10.3944)</p>
         </div>
         <div class="attraction">
             <b>Grand Canal</b>
-            <p>This beautiful canal is the main waterway through Venice.</p>
-            <p>Coordinates: (45.4349, 12.3351)</p>
-        </div>
-        <div class="attraction">
-            <b>Pompeii</b>
-            <p>This ancient city was frozen in time by the devastating volcanic eruption of Mount Vesuvius.</p>
-            <p>Coordinates: (40.7492, 14.4857)</p>
+            <p>A stunning canal that runs through the heart of Venice. (45.4349, 12.3385)</p>
         </div>
         <div class="attraction">
             <b>Uffizi Gallery</b>
-            <p>This museum in Florence is home to some of the world's most famous paintings.</p>
-            <p>Coordinates: (43.7691, 11.2555)</p>
+            <p>A world-renowned museum showcasing an impressive collection of Renaissance art. (43.7690, 11.2559)</p>
+        </div>
+        <div class="attraction">
+            <b>Pompeii</b>
+            <p>An ancient Roman city frozen in time by the devastating volcanic eruption of Mount Vesuvius. (40.7492, 14.4858)</p>
         </div>
     </div>
-    <div class="map" id="map"></div>
-    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
-   integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+   integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM"
    crossorigin=""></script>
     <script>
-        var map = L.map('map').setView([43.1719, 12.5137], 6);
+        const map = L.map('map').setView([43.7231, 12.4923], 6);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
             subdomains: ['a', 'b', 'c']
         }).addTo(map);
-        var attractions = [
-            [41.8902, 12.4923, "Colosseum"],
-            [43.7232, 10.3966, "Leaning Tower of Pisa"],
-            [45.4349, 12.3351, "Grand Canal"],
-            [40.7492, 14.4857, "Pompeii"],
-            [43.7691, 11.2555, "Uffizi Gallery"]
+        const attractions = [
+            { name: 'Colosseum', coords: [41.8902, 12.4923] },
+            { name: 'Leaning Tower of Pisa', coords: [43.7231, 10.3944] },
+            { name: 'Grand Canal', coords: [45.4349, 12.3385] },
+            { name: 'Uffizi Gallery', coords: [43.7690, 11.2559] },
+            { name: 'Pompeii', coords: [40.7492, 14.4858] }
         ];
-        attractions.forEach(function(attraction) {
-            L.marker([attraction[0], attraction[1]]).addTo(map).bindPopup(attraction[2]);
+        attractions.forEach(attraction => {
+            L.marker(attraction.coords).addTo(map).bindPopup(attraction.name);
         });
     </script>
 </body>
