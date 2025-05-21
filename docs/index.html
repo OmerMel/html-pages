@@ -5,111 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Germany</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
         }
-        .header {
-            background-color: #f7f7f7;
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
             padding: 20px;
-            text-align: center;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
             font-size: 36px;
-            font-weight: bold;
+            font-weight: 600;
+            margin-bottom: 20px;
         }
         .intro {
-            padding: 20px;
             font-size: 18px;
+            margin-bottom: 20px;
         }
         .images {
             display: flex;
             flex-wrap: wrap;
-            padding: 20px;
+            justify-content: center;
         }
         .image {
-            width: 33.33%;
             margin: 10px;
+            width: calc(33.33% - 20px);
         }
         .image img {
             width: 100%;
-            height: 200px;
+            height: 150px;
+            object-fit: cover;
             border-radius: 10px;
         }
-        .image-text {
+        .image-info {
             font-size: 16px;
-            padding: 10px;
+            margin-top: 10px;
         }
         .attractions {
-            padding: 20px;
+            margin-top: 20px;
         }
         .attraction {
             margin-bottom: 20px;
         }
         .attraction-name {
+            font-weight: 600;
             font-size: 18px;
-            font-weight: bold;
+        }
+        .attraction-desc {
+            font-size: 16px;
         }
         .map {
             width: 100%;
             height: 400px;
+            margin-top: 40px;
+            border: 1px solid #ddd;
         }
     </style>
 </head>
 <body>
-    <header class="header">Germany</header>
-    <div class="intro">
-        <p>Germany, the land of beer, cars, and rich history. A country that has something for everyone, from vibrant cities to quaint towns and picturesque countryside.</p>
-    </div>
-    <div class="images">
-        <div class="image">
-            <img src="https://images.unsplash.com/photo-1745953130391-10158d7562ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTM1MTh8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDc4MTk4NDJ8&ixlib=rb-4.1.0&q=80&w=1080" alt="Neuschwanstein Castle">
-            <div class="image-text">Neuschwanstein Castle, a fairytale-like palace in Bavaria.</div>
+    <div class="container">
+        <h1 class="header">Germany</h1>
+        <p class="intro">Germany, officially the Federal Republic of Germany, is a country located in Central Europe. It is the second-most populous country in terms of population and has a rich history and culture.</p>
+        <div class="images">
+            <div class="image">
+                <img src="https://images.unsplash.com/photo-1729731321933-ff3057be4562?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTM1MTh8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDc4MjAzNTJ8&ixlib=rb-4.1.0&q=80&w=1080" alt="German Landscape">
+                <p class="image-info">Neuschwanstein Castle, Bavaria</p>
+            </div>
+            <div class="image">
+                <img src="https://images.unsplash.com/photo-1746768934151-8c5cb84bcf11?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTM1MTh8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDc4MjAzNTJ8&ixlib=rb-4.1.0&q=80&w=1080" alt="German Landscape">
+                <p class="image-info">Black Forest, Baden-Württemberg</p>
+            </div>
+            <div class="image">
+                <img src="https://images.unsplash.com/photo-1746150361891-a61a9f6703c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTM1MTh8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDc4MjAzNTJ8&ixlib=rb-4.1.0&q=80&w=1080" alt="German Landscape">
+                <p class="image-info">Rhine River, North Rhine-Westphalia</p>
+            </div>
         </div>
-        <div class="image">
-            <img src="https://images.unsplash.com/photo-1740402065396-aa6f2bcd4b7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTM1MTh8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDc4MTk4NDJ8&ixlib=rb-4.1.0&q=80&w=1080" alt="Berlin Wall">
-            <div class="image-text">The Berlin Wall, a symbol of the city's turbulent past.</div>
-        </div>
-        <div class="image">
-            <img src="https://images.unsplash.com/photo-1747207323597-2a7367d70e47?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTM1MTh8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDc4MTk4NDJ8&ixlib=rb-4.1.0&q=80&w=1080" alt="Heidelberg Old Town">
-            <div class="image-text">Heidelberg's picturesque Old Town, with its charming streets and historic buildings.</div>
-        </div>
-    </div>
-    <div class="attractions">
-        <h2>Top Attractions</h2>
+        <h2 class="attractions">Top Attractions</h2>
         <div class="attraction">
-            <b>Neuschwanstein Castle</b>
-            <p>A fairytale-like palace in Bavaria, built in the 19th century.</p>
-            <p>(47.6139, 10.7494)</p>
+            <p class="attraction-name">**Munich**</p>
+            <p class="attraction-desc">The capital of Bavaria, known for its Oktoberfest celebrations and historic architecture.</p>
+            <p class="attraction-coordinates">(48.13743, 11.57549)</p>
         </div>
         <div class="attraction">
-            <b>Brandenburg Gate</b>
-            <p>A iconic symbol of Berlin, built in the 18th century.</p>
-            <p>(52.5163, 13.3777)</p>
+            <p class="attraction-name">**Berlin Wall Memorial**</p>
+            <p class="attraction-desc">A historic site that commemorates the division of Berlin during the Cold War era.</p>
+            <p class="attraction-coordinates">(52.50651, 13.44429)</p>
         </div>
         <div class="attraction">
-            <b>Heidelberg Castle</b>
-            <p>A historic Renaissance palace in Heidelberg, built in the 14th century.</p>
-            <p>(49.4095, 8.6939)</p>
+            <p class="attraction-name">**Cologne Cathedral**</p>
+            <p class="attraction-desc">A magnificent Gothic cathedral and a UNESCO World Heritage Site.</p>
+            <p class="attraction-coordinates">(50.93829, 6.95691)</p>
         </div>
+        <div class="map" id="map"></div>
     </div>
-    <div class="map" id="map"></div>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
     <script>
-        var map = L.map('map').setView([51.1657, 10.4515], 6);
+        var map = L.map('map').setView([51.16569, 10.45152], 6);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
             subdomains: ['a', 'b', 'c']
         }).addTo(map);
         var attractions = [
-            ["Neuschwanstein Castle", 47.6139, 10.7494],
-            ["Brandenburg Gate", 52.5163, 13.3777],
-            ["Heidelberg Castle", 49.4095, 8.6939]
+            { lat: 48.13743, lng: 11.57549, name: 'Munich' },
+            { lat: 52.50651, lng: 13.44429, name: 'Berlin Wall Memorial' },
+            { lat: 50.93829, lng: 6.95691, name: 'Cologne Cathedral' }
         ];
-        for (var i = 0; i < attractions.length; i++) {
-            L.marker([attractions[i][1], attractions[i][2]]).addTo(map);
-        }
+        attractions.forEach(function(attraction) {
+            L.marker([attraction.lat, attraction.lng]).addTo(map);
+        });
     </script>
 </body>
 </html>
