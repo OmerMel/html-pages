@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Germany</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
+    <title>Italy</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
     <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 40px auto;
             padding: 20px;
             background-color: #f9f9f9;
@@ -21,105 +25,126 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 {
             font-size: 36px;
-            font-weight: 600;
             margin-bottom: 20px;
         }
         .intro {
-            font-size: 18px;
-            margin-bottom: 20px;
+            padding: 20px;
         }
-        .images {
+        .image-gallery {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-between;
         }
         .image {
+            width: 33.33%;
             margin: 10px;
-            width: calc(33.33% - 20px);
         }
-        .image img {
+        img {
             width: 100%;
-            height: 150px;
+            height: 200px;
             object-fit: cover;
             border-radius: 10px;
         }
         .image-info {
-            font-size: 16px;
-            margin-top: 10px;
+            padding: 10px;
+            text-align: center;
+            background-color: #f7f7f7;
+            border-bottom: 1px solid;
         }
-        .attractions {
-            margin-top: 20px;
+        .top-attractions {
+            padding: 20px;
         }
         .attraction {
             margin-bottom: 20px;
         }
-        .attraction-name {
-            font-weight: 600;
+        .attraction h2 {
+            font-size: 24px;
+            font-weight: bold;
+        .attraction p {
             font-size: 18px;
+            margin-bottom: 10px;
         }
-        .attraction-desc {
+        .coordinates {
             font-size: 16px;
+            color: #666;
         }
-        .map {
+        #map {
             width: 100%;
             height: 400px;
-            margin-top: 40px;
             border: 1px solid #ddd;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="header">Germany</h1>
-        <p class="intro">Germany, officially the Federal Republic of Germany, is a country located in Central Europe. It is the second-most populous country in terms of population and has a rich history and culture.</p>
-        <div class="images">
+        <div class="header">
+            <h1>Italy</h1>
+        </div>
+        <div class="intro">
+            <p>Italy, a country located in Southern Europe, is known for its rich history, art, architecture, and stunning natural beauty.</p>
+        </div>
+        <div class="image-gallery">
             <div class="image">
-                <img src="https://images.unsplash.com/photo-1729731321933-ff3057be4562?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTM1MTh8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDc4MjAzNTJ8&ixlib=rb-4.1.0&q=80&w=1080" alt="German Landscape">
-                <p class="image-info">Neuschwanstein Castle, Bavaria</p>
+                <img src="https://images.unsplash.com/photo-1746433780060-986b6ff8287a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTM1MTh8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDc4MjEyNzJ8&ixlib=rb-4.1.0&q=80&w=1080" alt="Lake Como">
+                <div class="image-info">
+                    <p>Lake Como</p>
+                    <p>A picturesque lake in the Lombardy region</p>
+                </div>
             </div>
             <div class="image">
-                <img src="https://images.unsplash.com/photo-1746768934151-8c5cb84bcf11?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTM1MTh8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDc4MjAzNTJ8&ixlib=rb-4.1.0&q=80&w=1080" alt="German Landscape">
-                <p class="image-info">Black Forest, Baden-Württemberg</p>
+                <img src="https://images.unsplash.com/photo-1746974643797-03050c8b0213?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTM1MTh8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDc4MjEyNzN8&ixlib=rb-4.1.0&q=80&w=1080" alt="Amalfi Coast">
+                <div class="image-info">
+                    <p>Amalfi Coast</p>
+                    <p>A stunning coastline in the Campania region</p>
+                </div>
             </div>
             <div class="image">
-                <img src="https://images.unsplash.com/photo-1746150361891-a61a9f6703c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTM1MTh8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDc4MjAzNTJ8&ixlib=rb-4.1.0&q=80&w=1080" alt="German Landscape">
-                <p class="image-info">Rhine River, North Rhine-Westphalia</p>
+                <img src="https://images.unsplash.com/photo-1746433780060-986b6ff8287a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTM1MTh8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDc4MjEyNzJ8&ixlib=rb-4.1.0&q=80&w=1080" alt="Tuscany">
+                <div class="image-info">
+                    <p>Tuscany</p>
+                    <p>A region known for its rolling hills and vineyards</p>
+                </div>
             </div>
         </div>
-        <h2 class="attractions">Top Attractions</h2>
-        <div class="attraction">
-            <p class="attraction-name">**Munich**</p>
-            <p class="attraction-desc">The capital of Bavaria, known for its Oktoberfest celebrations and historic architecture.</p>
-            <p class="attraction-coordinates">(48.13743, 11.57549)</p>
+        <div class="top-attractions">
+            <h2>Top Attractions</h2>
+            <div class="attraction">
+                <h2><b>Colosseum</b></h2>
+                <p>This ancient amphitheater is one of Rome's most iconic landmarks</p>
+                <p class="coordinates">(41.8902, 12.4925)</p>
+            </div>
+            <div class="attraction">
+                <h2><b>Leaning Tower of Pisa</p></h2>
+                <p>This famous tower is a must-visit in Pisa</p>
+                <p class="coordinates">(43.7233, 10.3963)</p>
+            </div>
+            <div class="attraction">
+                <h2><b>Romantic Gondola Ride in Venice</h2>
+                <p>Take a romantic gondola ride through the canals of Venice</p>
+                <p class="coordinates">(45.4347, 12.3385)</p>
+            </div>
         </div>
-        <div class="attraction">
-            <p class="attraction-name">**Berlin Wall Memorial**</p>
-            <p class="attraction-desc">A historic site that commemorates the division of Berlin during the Cold War era.</p>
-            <p class="attraction-coordinates">(52.50651, 13.44429)</p>
-        </div>
-        <div class="attraction">
-            <p class="attraction-name">**Cologne Cathedral**</p>
-            <p class="attraction-desc">A magnificent Gothic cathedral and a UNESCO World Heritage Site.</p>
-            <p class="attraction-coordinates">(50.93829, 6.95691)</p>
-        </div>
-        <div class="map" id="map"></div>
+        <div id="map"></div>
     </div>
-    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
-        var map = L.map('map').setView([51.16569, 10.45152], 6);
+        var map = L.map('map').setView([43.7233, 10.3963], 6);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
             subdomains: ['a', 'b', 'c']
         }).addTo(map);
-        var attractions = [
-            { lat: 48.13743, lng: 11.57549, name: 'Munich' },
-            { lat: 52.50651, lng: 13.44429, name: 'Berlin Wall Memorial' },
-            { lat: 50.93829, lng: 6.95691, name: 'Cologne Cathedral' }
+        var markers = [
+            [41.8902, L.marker([41.8902, 12.4925]).addTo(map),
+            [43.7233, L.marker([43.7233, 10.3963]).addTo(map)],
+            [45.4347, L.marker([45.4347, 12.3385]).addTo(map)]
         ];
-        attractions.forEach(function(attraction) {
-            L.marker([attraction.lat, attraction.lng]).addTo(map);
-        });
     </script>
 </body>
 </html>
