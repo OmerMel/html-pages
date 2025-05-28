@@ -3,50 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Italy</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
+    <title>Israel</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
         body {
             font-family: 'Open Sans', sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0;
+            padding: 0;
         }
         .header {
             background-color: #333;
             color: #fff;
             padding: 20px;
             text-align: center;
-        }
-        .header h1 {
             font-size: 36px;
-            margin-bottom: 20px;
+            font-weight: bold;
         }
         .intro {
             padding: 20px;
+            font-size: 18px;
         }
-        .image-gallery {
+        .images {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
         }
         .image {
-            width: 33.33%;
-            margin: 10px;
+            margin: 20px;
+            width: 30%;
         }
-        img {
+        .image img {
             width: 100%;
             height: 200px;
             object-fit: cover;
@@ -54,97 +41,74 @@
         }
         .image-info {
             padding: 10px;
-            text-align: center;
-            background-color: #f7f7f7;
-            border-bottom: 1px solid;
+            font-size: 16px;
         }
-        .top-attractions {
+        .attractions {
             padding: 20px;
         }
         .attraction {
             margin-bottom: 20px;
         }
-        .attraction h2 {
-            font-size: 24px;
+        .attraction-name {
             font-weight: bold;
-        .attraction p {
-            font-size: 18px;
-            margin-bottom: 10px;
         }
-        .coordinates {
-            font-size: 16px;
-            color: #666;
-        }
-        #map {
+        .map {
             width: 100%;
             height: 400px;
-            border: 1px solid #ddd;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Italy</h1>
-        </div>
-        <div class="intro">
-            <p>Italy, a country located in Southern Europe, is known for its rich history, art, architecture, and stunning natural beauty.</p>
-        </div>
-        <div class="image-gallery">
-            <div class="image">
-                <img src="https://images.unsplash.com/photo-1746433780060-986b6ff8287a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTM1MTh8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDc4MjEyNzJ8&ixlib=rb-4.1.0&q=80&w=1080" alt="Lake Como">
-                <div class="image-info">
-                    <p>Lake Como</p>
-                    <p>A picturesque lake in the Lombardy region</p>
-                </div>
-            </div>
-            <div class="image">
-                <img src="https://images.unsplash.com/photo-1746974643797-03050c8b0213?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTM1MTh8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDc4MjEyNzN8&ixlib=rb-4.1.0&q=80&w=1080" alt="Amalfi Coast">
-                <div class="image-info">
-                    <p>Amalfi Coast</p>
-                    <p>A stunning coastline in the Campania region</p>
-                </div>
-            </div>
-            <div class="image">
-                <img src="https://images.unsplash.com/photo-1746433780060-986b6ff8287a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTM1MTh8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDc4MjEyNzJ8&ixlib=rb-4.1.0&q=80&w=1080" alt="Tuscany">
-                <div class="image-info">
-                    <p>Tuscany</p>
-                    <p>A region known for its rolling hills and vineyards</p>
-                </div>
+    <header class="header">Israel</header>
+    <div class="intro">
+        <p>Israel, a country in the Middle East, is known for its rich history, cultural heritage, and stunning natural beauty.</p>
+    <div class="images">
+        <div class="image">
+            <img src="https://images.unsplash.com/photo-1674003487182-cf742fd71bd0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTM1MTh8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDg0MzcyOTF8&ixlib=rb-4.1.0&q=80&w=1080" alt="Tel Aviv Beach">
+            <div class="image-info">
+                <p>Tel Aviv Beach</p>
             </div>
         </div>
-        <div class="top-attractions">
-            <h2>Top Attractions</h2>
-            <div class="attraction">
-                <h2><b>Colosseum</b></h2>
-                <p>This ancient amphitheater is one of Rome's most iconic landmarks</p>
-                <p class="coordinates">(41.8902, 12.4925)</p>
-            </div>
-            <div class="attraction">
-                <h2><b>Leaning Tower of Pisa</p></h2>
-                <p>This famous tower is a must-visit in Pisa</p>
-                <p class="coordinates">(43.7233, 10.3963)</p>
-            </div>
-            <div class="attraction">
-                <h2><b>Romantic Gondola Ride in Venice</h2>
-                <p>Take a romantic gondola ride through the canals of Venice</p>
-                <p class="coordinates">(45.4347, 12.3385)</p>
+        <div class="image">
+            <img src="https://images.unsplash.com/photo-1634248841596-3feea86bcb2e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NTM1MTh8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDg0MzcyOTF8&ixlib=rb-4.1.0&q=80&w=1080" alt="Masada National Park">
+            <div class="image-info">
+                <p>Masada National Park</p>
             </div>
         </div>
-        <div id="map"></div>
     </div>
+    <div class="attractions">
+        <h2>Top Attractions</h2>
+        <div class="attraction">
+            <p class="attraction-name">Tel Aviv Beach</p>
+            <p>One of the most popular beaches in Israel, known for its vibrant atmosphere and stunning sunsets.</p>
+            <p>(32.0823, 34.7653)</p>
+        </div>
+        <div class="attraction">
+            <p class="attraction-name">Masada National Park</p>
+            <p>A historic fortress situated on top of a rock plateau, offering breathtaking views of the Dead Sea.</p>
+            <p>(31.3123, 35.3942)</p>
+        </div>
+        <div class="attraction">
+            <p class="attraction-name">Western Wall</p>
+            <p>A ancient limestone wall in the Old City of Jerusalem, considered one of the holiest sites in Judaism.</p>
+            <p>(31.7767, 35.2344)</p>
+        </div>
+    </div>
+    <div class="map" id="map"></div>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
-        var map = L.map('map').setView([43.7233, 10.3963], 6);
+        const map = L.map('map').setView([31.7767, 35.2344], 8);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
-            subdomains: ['a', 'b', 'c']
         }).addTo(map);
-        var markers = [
-            [41.8902, L.marker([41.8902, 12.4925]).addTo(map),
-            [43.7233, L.marker([43.7233, 10.3963]).addTo(map)],
-            [45.4347, L.marker([45.4347, 12.3385]).addTo(map)]
+        const attractions = [
+            [32.0823, 34.7653],
+            [31.3123, 35.3942],
+            [31.7767, 35.2344],
         ];
+        attractions.forEach(([lat, lng]) => {
+            L.marker([lat, lng]).addTo(map);
+        });
     </script>
 </body>
 </html>
